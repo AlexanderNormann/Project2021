@@ -8,7 +8,7 @@ public class SubTask {
   private String subTaskListName;
   private String subTaskListDescription;
   private int subTaskListId;
-  private String subTaskId;
+  private int subTaskId;
 
 
   public SubTask() {
@@ -44,7 +44,7 @@ public class SubTask {
     this.subTaskTimeEstimate = subTaskTimeEstimate;
   }
 
-  public String getSubTaskId() {
+  public int getSubTaskId(int id) {
     return subTaskId;
   }
 
@@ -72,7 +72,7 @@ public class SubTask {
     this.subTaskListId = subTaskListId;
   }
 
-  public void setSubTaskId(String subTaskId) {
+  public void setSubTaskId(int subTaskId) {
     this.subTaskId = subTaskId;
 
   }
