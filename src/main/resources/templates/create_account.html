@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create account</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="stylesheet.css" rel="stylesheet">
+</head>
+<body>
+<div class="container center">
+    <h1>Create account</h1>
+</div>
+<!--Create account form-->
+<div class="container">
+    <form>
+        <!--Firstname for account/DB-->
+        <label for="fname"><b>Firstname</b></label><br>
+        <input type="text" placeholder="Enter firstname" name="fname" required><br>
+
+        <!--Lastname for account/DB-->
+        <label for="lname"><b>Lastname</b></label><br>
+        <input type="text" placeholder="Enter lastname" name="lname" required><br>
+
+        <!--Email for account/DB-->
+        <label for="email"><b>Email</b></label><br>
+        <input type="text" placeholder="Enter email" name="email" required><br>
+
+        <!--password for account/DB-->
+        <label for="pword"><b>Password</b></label><br>
+        <input type="password" placeholder="Enter password" name="pword" required>
+    </form>
+
+    <!--"Create" submit button-->
+    <button type="submit" class="btn btn-outline-dark btn-xxl button1">Create account</button><br>
+
+    <a th:href="@{/index}" class="btn btn-dark btn-xs button2">Return to login</a>
+</div>
+
+</body>
+</html>
