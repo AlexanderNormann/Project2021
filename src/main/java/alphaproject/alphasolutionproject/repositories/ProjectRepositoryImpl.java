@@ -6,14 +6,18 @@ import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.*;
-
 public class ProjectRepositoryImpl implements ProjectRepository{
+
+  @Autowired
+  public ProjectRepositoryImpl() {
+
+  }
 
   @Override
   public Project createProject(Project project, User user) throws SampleExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "insert into Project(projectname, projectdescription, projecttimeestimate) values (?,?,?)"; //Foreign Keys skal skrives indd
+      String SQL = "insert into Project(projectname, projectdescription, projecttimeestimate) values (?,?,?)"; //Foreign Keys skal skrives ind
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, project.getProjectName());
       ps.setString(2,project.getProjectDescription());
