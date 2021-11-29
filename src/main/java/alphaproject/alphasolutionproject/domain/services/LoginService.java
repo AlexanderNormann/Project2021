@@ -3,13 +3,11 @@ package alphaproject.alphasolutionproject.domain.services;
 import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.repositories.UserRepository;
 import alphaproject.alphasolutionproject.repositories.UserRepositoryImpl;
-import org.springframework.stereotype.Service;
 
-@Service
 public class LoginService {
     private UserRepository userRepository;
 
-    public LoginService(UserRepositoryImpl userRepository){
+    public LoginService(UserRepository userRepository){
         this.userRepository = userRepository;
     }
 

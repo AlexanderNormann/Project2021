@@ -6,16 +6,19 @@ private String lastName;
 private String email;
 private String password;
 private int userId;
+private boolean authority;
 
 
   public User() {
   }
 
-  public User(String firstName, String lastName, String email, String password) {
+
+  public User(String firstName, String lastName, String email, String password, boolean authority) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.password = password;
+    this.authority = authority;
   }
 
   public User(String email, String password) {
@@ -61,5 +64,13 @@ private int userId;
 
   public void setUserId(int userId) {
     this.userId = userId;
+  }
+
+  public boolean isAuthority() {
+    return authority;
+  }
+
+  public void setAuthority(boolean authority) {
+    this.authority = authority;
   }
 }

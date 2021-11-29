@@ -7,8 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 
-@Repository
-
 public class UserRepositoryImpl implements UserRepository {
 
   @Override
