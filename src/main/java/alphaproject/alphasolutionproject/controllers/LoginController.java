@@ -24,7 +24,7 @@ public class LoginController {
     //This creates a user to database
     @PostMapping("/createUser")
     public String saveUser(@ModelAttribute("User") User user) throws Exception{
-    loginService.createUser(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword());
+    loginService.createUser(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword(), user.getAuthority());
     return "redirect:/";
     }
 

@@ -15,8 +15,8 @@ public User login(String email, String password) throws Exception {
 return userRepository.login(email, password);
 }
 
-public User createUser(String firstname, String lastname, String email, String password) throws Exception {
-User user = new User(firstname, lastname, email, password);
+public User createUser(String firstname, String lastname, String email, String password, String authority) throws Exception {
+User user = new User(firstname, lastname, email, password, authority);
 return userRepository.createUser(user);
 }
 }
