@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Create account</title>
@@ -17,11 +17,11 @@
 
         <!--Firstname for account/DB-->
         <label><b>Firstname</b></label><br>
-        <input type="text" th:field="*{firstname}" placeholder="Enter firstname" required><br>
+        <input type="text" th:field="*{firstName}" placeholder="Enter firstname" required><br>
 
         <!--Lastname for account/DB-->
         <label><b>Lastname</b></label><br>
-        <input type="text" th:field="*{lastname}" placeholder="Enter lastname" required><br>
+        <input type="text" th:field="*{lastName}" placeholder="Enter lastname" required><br>
 
         <!--Email for account/DB-->
         <label><b>Email</b></label><br>
@@ -30,11 +30,10 @@
         <!--password for account/DB-->
         <label><b>Password</b></label><br>
         <input type="password" th:field="*{password}" placeholder="Enter password" required>
+
+        <!--"Create" submit button-->
+        <button type="submit" class="btn btn-outline-dark btn-xxl button1">Create account</button><br>
     </form>
-
-    <!--"Create" submit button-->
-    <button type="submit" class="btn btn-outline-dark btn-xxl button1">Create account</button><br>
-
     <a th:href="@{/}" class="btn btn-dark btn-xs button2">Return to login</a>
 </div>
 

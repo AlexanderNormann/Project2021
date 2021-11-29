@@ -1,15 +1,14 @@
 package alphaproject.alphasolutionproject.repositories;
 
 import alphaproject.alphasolutionproject.domain.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
+
+@Repository
+
 public class UserRepositoryImpl implements UserRepository {
-
-
-  public UserRepositoryImpl(){
-
-  }
 
   @Override
   public User login(String email, String password) throws Exception {
@@ -41,7 +40,7 @@ public class UserRepositoryImpl implements UserRepository {
   public User createUser(User user) throws Exception {
     try{
       Connection connection = DBManager.getConnection();
-      String SQL = "insert into Users (firstname, lastname, email, password) values (?, ?, ?, ?) ";
+      String SQL = "insert into User (firstname, lastname, email, password) values (?, ?, ?, ?) ";
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, user.getFirstName());
       ps.setString(2, user.getLastName());
