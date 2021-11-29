@@ -1,10 +1,15 @@
 package alphaproject.alphasolutionproject.repositories;
 
 import alphaproject.alphasolutionproject.domain.model.User;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
-
 public class UserRepositoryImpl implements UserRepository {
+
+
+  public UserRepositoryImpl(){
+
+  }
 
   @Override
   public User login(String email, String password) throws Exception {
