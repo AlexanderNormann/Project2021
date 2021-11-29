@@ -1,6 +1,7 @@
 package alphaproject.alphasolutionproject.repositories;
 
 import alphaproject.alphasolutionproject.domain.model.User;
+import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +15,7 @@ public class UserRepositoryImpl implements UserRepository {
   public User login(String email, String password) throws Exception {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "select userid from users " + "where email = ? and password = ?";
+      String SQL = "select userid from user " + "where email = ? and password = ?";
       PreparedStatement ps = connection.prepareStatement(SQL);
       ps.setString(1, email);
       ps.setString(2, password);
@@ -29,11 +30,9 @@ public class UserRepositoryImpl implements UserRepository {
       }
 
     } catch (SQLException e) {
-      e.printStackTrace();
+      throw new SampleExeption(e.getMessage());
     }
 
-
-    return null; //skal ikke være der?
   }
 
   @Override

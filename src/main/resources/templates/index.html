@@ -13,21 +13,22 @@
 </div>
 <!--Login form-->
 <div class="container text">
-    <form>
+    <form action="#" th:action="@{/login}" th:object="${User}" method="post">
+
         <!--Email for login-->
-        <label for="email"><b>Email</b></label><br>
-        <input type="text" placeholder="Enter email" name="email" required><br>
+        <label><b>Email</b></label><br>
+        <input type="text" th:field="*{email}" placeholder="Enter email" ><br>
 
         <!--Password for login-->
-        <label for="pword"><b>Password</b></label><br>
-        <input type="password" placeholder="Enter password" name="pword" required>
+        <label><b>Password</b></label><br>
+        <input type="password" th:field="*{password}" placeholder="Enter password" required>
+
+        <!--"Remember me" check box-->
+        <label><input type="checkbox" checked="checked" name="Remember me"> Remember me</label><br>
+        <!--Login submit button-->
+        <button type="submit" class="btn btn-outline-dark btn-xxl button1">Login</button><br>
     </form>
 
-    <!--"Remember me" check box-->
-    <label><input type="checkbox" checked="checked" name="Remember me"> Remember me</label><br>
-
-    <!--Login submit button-->
-    <button type="submit" class="btn btn-outline-dark btn-xxl button1">Login</button><br>
 
     <!--Redirect button for create account side-->
     <a th:href="@{/goToCreateUser}" class="btn btn-dark btn-xs button2">Create account</a>
