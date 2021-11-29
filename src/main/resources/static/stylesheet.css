@@ -25,3 +25,7 @@ input[type=text], input[type=password]{
 .container{
     padding: 2%;
 }
+
+.logo{
+    margin-right: 1%;
+}
