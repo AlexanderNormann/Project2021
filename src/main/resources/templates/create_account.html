@@ -12,28 +12,30 @@
 </div>
 <!--Create account form-->
 <div class="container">
-    <form>
+    <!--Form method for saving user datta in databse-->
+    <form action="#" th:action="@{/createUser}" th:object="${User}" method="post">
+
         <!--Firstname for account/DB-->
-        <label for="fname"><b>Firstname</b></label><br>
-        <input type="text" placeholder="Enter firstname" name="fname" required><br>
+        <label><b>Firstname</b></label><br>
+        <input type="text" th:field="*{firstname}" placeholder="Enter firstname" required><br>
 
         <!--Lastname for account/DB-->
-        <label for="lname"><b>Lastname</b></label><br>
-        <input type="text" placeholder="Enter lastname" name="lname" required><br>
+        <label><b>Lastname</b></label><br>
+        <input type="text" th:field="*{lastname}" placeholder="Enter lastname" required><br>
 
         <!--Email for account/DB-->
-        <label for="email"><b>Email</b></label><br>
-        <input type="text" placeholder="Enter email" name="email" required><br>
+        <label><b>Email</b></label><br>
+        <input type="text" th:field="*{email}" placeholder="Enter email" required><br>
 
         <!--password for account/DB-->
-        <label for="pword"><b>Password</b></label><br>
-        <input type="password" placeholder="Enter password" name="pword" required>
+        <label><b>Password</b></label><br>
+        <input type="password" th:field="*{password}" placeholder="Enter password" required>
     </form>
 
     <!--"Create" submit button-->
     <button type="submit" class="btn btn-outline-dark btn-xxl button1">Create account</button><br>
 
-    <a th:href="@{/index}" class="btn btn-dark btn-xs button2">Return to login</a>
+    <a th:href="@{/}" class="btn btn-dark btn-xs button2">Return to login</a>
 </div>
 
 </body>

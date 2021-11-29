@@ -13,7 +13,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
   public Project createProject(Project project, User user) throws SampleExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "insert into Project(projectname, projectdescription, projecttimeestimate) values (?,?,?)"; //Foreign Keys skal skrives indd
+      String SQL = "insert into Project(projectname, projectdescription, projecttimeestimate) values (?,?,?)"; //Foreign Keys skal skrives ind
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, project.getProjectName());
       ps.setString(2,project.getProjectDescription());
