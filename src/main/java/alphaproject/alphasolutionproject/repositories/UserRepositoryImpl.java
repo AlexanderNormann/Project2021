@@ -5,6 +5,7 @@ import alphaproject.alphasolutionproject.domain.model.User;
 import java.sql.*;
 
 public class UserRepositoryImpl implements UserRepository {
+
   @Override
   public User login(String email, String password) throws Exception {
     try {
