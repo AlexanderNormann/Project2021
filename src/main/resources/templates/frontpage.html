@@ -7,10 +7,16 @@
     <link href="stylesheet.css" rel="stylesheet">
 </head>
 <body>
-    <div>
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+            <form>
+                <a class="btn btn-outline-dark btn-xs">1</a>
+                <a class="btn btn-outline-dark btn-xs">2</a>
+                <a class="btn btn-outline-dark btn-xs">3</a>
+                <a class="btn btn-outline-dark btn-xs">4</a>
+            </form>
         <a th:href="@{/logout}" class="btn btn-dark btn-xs button2 logo">Log out</a>
-        <li><a>1</a></li>
-        <li></li>
+        </nav>
     </div>
     <div class="container center">
         <h1>Welcome to your project site</h1>
