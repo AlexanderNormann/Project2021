@@ -36,13 +36,15 @@ public class UserRepositoryImpl implements UserRepository {
   @Override
   public User createUser(User user) throws Exception {
     try{
+      System.out.println(user.getAuthority());
       Connection connection = DBManager.getConnection();
-      String SQL = "insert into User (firstname, lastname, email, password) values (?, ?, ?, ?) ";
+      String SQL = "insert into User (firstname, lastname, email, password, role) values (?, ?, ?, ?, ?) ";
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, user.getFirstName());
       ps.setString(2, user.getLastName());
       ps.setString(3, user.getEmail());
       ps.setString(4, user.getPassword());
+      ps.setString(5, String.valueOf(user.getAuthority()));
       ps.executeUpdate();
       ResultSet rs = ps.getGeneratedKeys();
       rs.next();
