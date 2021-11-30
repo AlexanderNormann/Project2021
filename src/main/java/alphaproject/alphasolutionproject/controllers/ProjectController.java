@@ -34,6 +34,11 @@ public class ProjectController {
     return "frontpage";
   }
 
+  @GetMapping("/goToFrontPage")
+  public String goToFrontPage(){
+    return "frontpage";
+  }
+
 
 
 

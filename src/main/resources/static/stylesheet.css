@@ -18,6 +18,11 @@ input[type=text], input[type=password]{
     margin-top: 1%;
 }
 
+.button3{
+    margin-left: 1;
+
+}
+
 .center{
     text-align: center;
 }

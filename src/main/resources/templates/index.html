@@ -17,11 +17,12 @@
 
         <!--Email for login-->
         <label><b>Email</b></label><br>
-        <input type="text" th:field="*{email}" value="nicklas.hansen@hotmail.com" ><br>
+        <input type="text" th:field="*{email}" placeholder="Enter email" required><br>
 
         <!--Password for login-->
         <label><b>Password</b></label><br>
-        <input type="password" th:field="*{password}" value="1" required>
+        <input type="password" th:field="*{password}" placeholder="Enter password" required>
+
 
         <!--"Remember me" check box-->
         <label><input type="checkbox" checked="checked" name="Remember me"> Remember me</label><br>
