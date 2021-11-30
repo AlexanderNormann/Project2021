@@ -2,6 +2,7 @@ package alphaproject.alphasolutionproject.repositories;
 
 import alphaproject.alphasolutionproject.domain.model.SubTask;
 import alphaproject.alphasolutionproject.domain.model.Task;
+import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 
 import java.sql.*;
@@ -9,7 +10,7 @@ import java.sql.*;
 public class SubTaskRespositoryImpl implements SubTaskRepository{
 
   @Override
-  public SubTask createSubTask(SubTask subTask) throws SampleExeption {
+  public SubTask createSubTask(SubTask subTask, User user) throws SampleExeption {
     try {
       Connection connection = DBManager.getConnection();
       String SQL = "insert into Subtask(subtaskname, subtaskdescription, subtasktimeestimate) values (?,?,?)";

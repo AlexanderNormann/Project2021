@@ -8,29 +8,29 @@
 </head>
 <body>
 <div class="container center">
-    <h1>Create task</h1>
+    <h1>Create subtask</h1>
 </div>
 <!--Create account form-->
 <div class="container">
     <!--Form method for saving user datta in databse-->
-    <form action="#" th:action="@{/saveTask}" th:object="${task}" method="post">
+    <form action="#" th:action="@{/saveSubTask}" th:object="${subTask}" method="post">
 
         <!--Firstname for account/DB-->
         <label><b>Project name</b></label><br>
-        <input type="text" th:field="*{taskName}" placeholder="Enter task name" required><br>
+        <input type="text" th:field="*{subTaskName}" placeholder="Enter task name" required><br>
 
         <!--Lastname for account/DB-->
         <label><b>Project description</b></label><br>
-        <input type="text" th:field="*{taskDescription}" placeholder="Enter task description" required><br>
+        <input type="text" th:field="*{subTaskDescription}" placeholder="Enter task description" required><br>
 
         <!--Email for account/DB-->
         <label><b>Time estimate</b></label><br>
-        <input type="text" th:field="*{taskTimeEstimate}" placeholder="Enter task estimate" required><br>
+        <input type="text" th:field="*{subTaskTimeEstimate}" placeholder="Enter task estimate" required><br>
 
         <!--"Create" submit button-->
         <button type="submit" class="btn btn-outline-dark btn-xxl button1">Create task</button><br>
     </form>
-    <a th:href="@{/goToFrontPage}" class="btn btn-dark btn-xs button2">Return to project site</a>
+    <a th:href="@{/login}" class="btn btn-dark btn-xs button2">Return to front page</a>
 </div>
 
 </body>
