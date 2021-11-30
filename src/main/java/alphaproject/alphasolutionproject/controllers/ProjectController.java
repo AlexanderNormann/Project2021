@@ -28,8 +28,8 @@ public class ProjectController {
   }
 
   @PostMapping("/saveProject")
-  public String saveProject(@ModelAttribute("project") Project project, HttpSession httpSession) throws SampleExeption {
-    User user = (User)httpSession.getAttribute("user");
+  public String saveProject(@ModelAttribute("project") Project project, HttpSession hs) throws SampleExeption {
+    User user = (User)hs.getAttribute("user");
     projectService.createNewProject(project, user);
     return "frontpage";
   }

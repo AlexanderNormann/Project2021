@@ -1,19 +1,20 @@
 package alphaproject.alphasolutionproject.repositories;
 
 import alphaproject.alphasolutionproject.domain.model.Task;
+import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 import org.xml.sax.SAXException;
 
 import java.sql.*;
 
-public class TaskRepositoryImpl implements Taskrepository {
+public class TaskRepositoryImpl implements TaskRepository {
   @Override
-  public Task createTask(Task task) throws SampleExeption {
+  public Task createTask(Task task, User user) throws SampleExeption {
     try {
       Connection connection = DBManager.getConnection();
       String SQL = "insert into Task(taskname, taskdescription, tasktimeestimate) values (?,?,?)";
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-      ps.setString(1, task.getTastName());
+      ps.setString(1, task.getTaskName());
       ps.setString(2, task.getTaskDescription());
       ps.setString(3, task.getTaskTimeEstimate());
       ps.execute();
@@ -26,6 +27,7 @@ public class TaskRepositoryImpl implements Taskrepository {
       throw new SampleExeption(e.getMessage());
     }
   }
+
 
   //Foreign Keys skal sættes op til lists i SQL-databse
 

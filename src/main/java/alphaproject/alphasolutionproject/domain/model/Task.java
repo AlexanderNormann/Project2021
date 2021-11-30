@@ -1,7 +1,7 @@
 package alphaproject.alphasolutionproject.domain.model;
 
 public class Task {
-  private String tastName;
+  private String taskName;
   private String taskDescription;
   private String taskTimeEstimate;
   private String taskListName;
@@ -14,17 +14,17 @@ public class Task {
   }
 
   public Task(String tastName, String taskDescription, String taskTimeEstimate) {
-    this.tastName = tastName;
+    this.taskName = tastName;
     this.taskDescription = taskDescription;
     this.taskTimeEstimate = taskTimeEstimate;
   }
 
-  public String getTastName() {
-    return tastName;
+  public String getTaskName() {
+    return taskName;
   }
 
-  public void setTastName(String tastName) {
-    this.tastName = tastName;
+  public void setTaskName(String taskName) {
+    this.taskName = taskName;
   }
 
   public String getTaskDescription() {
