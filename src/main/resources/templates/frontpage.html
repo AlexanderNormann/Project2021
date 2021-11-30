@@ -17,6 +17,12 @@
             </form>
         <a th:href="@{/logout}" class="btn btn-dark btn-xs button3 logo">Log out</a>
         </nav>
+        <tr th:each="project : ${project}">
+            <td th:text="${project.getProjectName()}"></td>
+            <td th:text="${project.getProjectDescription()}"></td>
+            <td th:text="${project.getProjectTimeEstimate()}"></td>
+
+        </tr>
     </div>
     <div class="container center">
         <h1>Welcome to your project site</h1>

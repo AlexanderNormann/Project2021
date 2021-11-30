@@ -5,6 +5,8 @@ import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.repositories.ProjectRepository;
 import alphaproject.alphasolutionproject.repositories.ProjectRepositoryImpl;
 
+import java.util.ArrayList;
+
 public class ProjectService {
   private ProjectRepository projectRepository;
   private ProjectRepositoryImpl projectRepositoryImpl = new ProjectRepositoryImpl();
@@ -17,8 +19,12 @@ public class ProjectService {
     return projectRepositoryImpl.createProject(project, user);
   }
 
-  public Project addProjectToList(Project project) throws SampleExeption {
-    return projectRepository.addProjetToList(project);
+  public Project addProjectToList(Project project, User user) throws SampleExeption {
+    return null;
+  }
+
+  public ArrayList<Project> showProjects(int id){
+  return projectRepositoryImpl.showProjects(id);
   }
 
 
