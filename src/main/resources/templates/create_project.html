@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="stylesheet.css" rel="stylesheet">
+</head>
+<body>
+<div class="container center">
+    <h1>Create account</h1>
+</div>
+<!--Create account form-->
+<div class="container">
+    <!--Form method for saving user datta in databse-->
+    <form action="#" th:action="@{/saveProject}" th:object="${project}" method="post">
+
+        <!--Firstname for account/DB-->
+        <label><b>Project name</b></label><br>
+        <input type="text" th:field="*{projectName}" placeholder="Enter project name" required><br>
+
+        <!--Lastname for account/DB-->
+        <label><b>Project description</b></label><br>
+        <input type="text" th:field="*{projectDescription}" placeholder="Enter project description" required><br>
+
+        <!--Email for account/DB-->
+        <label><b>Time estimate</b></label><br>
+        <input type="text" th:field="*{projectTimeEstimate}" placeholder="Enter time estimate" required><br>
+
+        <!--"Create" submit button-->
+        <button type="submit" class="btn btn-outline-dark btn-xxl button1">Create project</button><br>
+    </form>
+    <a th:href="@{/login}" class="btn btn-dark btn-xs button2">Return to front page</a>
+</div>
+
+</body>
+</html>
