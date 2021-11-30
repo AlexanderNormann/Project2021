@@ -11,22 +11,36 @@
         <nav class="navbar navbar-light bg-light">
             <form>
                 <a th:href="@{/goToCreateProject}" class="btn btn-outline-dark btn-xs button3">Create project</a>
-                <a th:href="@{/goToCreateTask}" class="btn btn-outline-dark btn-xs">Create new task</a>
-                <a th:href="@{/goToCreateSubTask}" class="btn btn-outline-dark btn-xs">3</a>
+                <a th:href="@{/goToCreateTask}" class="btn btn-outline-dark btn-xs">Create task</a>
+                <a th:href="@{/goToCreateSubTask}" class="btn btn-outline-dark btn-xs">Create subtask</a>
                 <a class="btn btn-outline-dark btn-xs">4</a>
             </form>
         <a th:href="@{/logout}" class="btn btn-dark btn-xs button3 logo">Log out</a>
         </nav>
-        <tr th:each="project : ${project}">
-            <td th:text="${project.getProjectName()}"></td>
-            <td th:text="${project.getProjectDescription()}"></td>
-            <td th:text="${project.getProjectTimeEstimate()}"></td>
+    </div>
+    <!--<tr th:each="project : ${project}">
+        <td th:text="${project.getProjectName()}"></td> <br>
+        <td th:text="${project.getProjectDescription()}"></td> <br>
+        <td th:text="${project.getProjectTimeEstimate()}"></td>
 
-        </tr>
+    </tr>
+    -->
     </div>
     <div class="container center">
         <h1>Welcome to your project site</h1>
     </div>
+
+    <div class="card cardW container">
+        <tr th:each="project: ${project}">
+            <div class="card-body">
+                <h5 class="card-title"><td th:text="${project.getProjectName()}"></td></h5>
+                <p class="card-text"><td th:text="${project.getProjectDescription()}"></td></p>
+                <p class="card-text"><td th:text="${project.getProjectTimeEstimate()}"></td> </p>
+                <a class="btn btn-outline-dark btn-xs">Go to project</a>
+
+
+            </div>
+        </tr>
 
 
 
