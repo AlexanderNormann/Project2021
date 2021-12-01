@@ -31,7 +31,7 @@ public class SubTaskController {
   public String saveTask(@ModelAttribute("subTask") SubTask subTask, HttpSession hs) throws SampleExeption {
     User user = (User)hs.getAttribute("user");
     subTaskService.createNewSubTask(subTask, user);
-    return "frontpage";
+    return "redirect:/showProjects";
   }
 
 

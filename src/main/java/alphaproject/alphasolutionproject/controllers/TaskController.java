@@ -28,6 +28,6 @@ public class TaskController {
   public String saveTask(@ModelAttribute("task")Task task, HttpSession hs) throws SampleExeption {
     User user = (User)hs.getAttribute("user");
     taskService.createNewTask(task, user);
-    return "frontpage";
+    return "redirect:/showProjects";
   }
 }

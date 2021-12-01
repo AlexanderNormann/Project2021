@@ -31,11 +31,19 @@ public class ProjectController {
   public String saveProject(@ModelAttribute("project") Project project, HttpSession hs) throws SampleExeption {
     User user = (User)hs.getAttribute("user");
     projectService.createNewProject(project, user);
-    return "frontpage";
+    return "redirect:/showProjects";
   }
 
   @GetMapping("/goToFrontPage")
   public String goToFrontPage(){
+    return "redirect:/showProjects";
+  }
+
+
+  @GetMapping("/showProjects")
+  public String showProjects(Model model, HttpSession hs){
+    User user = (User)hs.getAttribute("user");
+    model.addAttribute("projectlist", projectService.loadProjects(user.getUserId()));
     return "frontpage";
   }
 

@@ -2,7 +2,6 @@ package alphaproject.alphasolutionproject.domain.services;
 
 import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.repositories.UserRepository;
-import alphaproject.alphasolutionproject.repositories.UserRepositoryImpl;
 
 public class LoginService {
     private UserRepository userRepository;
