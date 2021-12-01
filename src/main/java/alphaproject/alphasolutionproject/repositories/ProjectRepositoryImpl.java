@@ -80,7 +80,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     try{
 
       Connection connection = DBManager.getConnection();
-      String SQL = "select * from alphasolutions.project where userID_FK = ?";
+      String SQL = "select * from alphasolutions.project where projectid = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
