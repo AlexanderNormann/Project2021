@@ -57,7 +57,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     ArrayList<Project> projectList = new ArrayList<>();
     try{
       Connection connection = DBManager.getConnection();
-      String SQL = "select * from alphasolutions.project where userID_FK = ?";
+      String SQL = "select * from alphasolution.project where userID_FK = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();

@@ -26,9 +26,10 @@ public class TaskController {
   }
 
   @PostMapping("/saveTask")
-  public String saveTask(@ModelAttribute("task")Task task, HttpSession hs) throws SampleExeption {
+  public String saveTask(@ModelAttribute("task")Task task, Project project, HttpSession hs) throws SampleExeption {
     User user = (User)hs.getAttribute("user");
-    taskService.createNewTask(task, user);
+    taskService.createNewTask(task, user, project);
     return "redirect:/showProjects";
   }
+
 }

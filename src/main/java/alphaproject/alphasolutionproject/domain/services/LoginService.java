@@ -2,6 +2,7 @@ package alphaproject.alphasolutionproject.domain.services;
 
 import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.repositories.UserRepository;
+import alphaproject.alphasolutionproject.repositories.UserRepositoryImpl;
 
 import java.util.ArrayList;
 
