@@ -27,6 +27,10 @@ public class ProjectService {
   return projectRepositoryImpl.showProjects(id);
   }
 
+  public ArrayList<Project> loadProjects(int id){
+    return projectRepositoryImpl.loadProjects(id);
+  }
+
 
   public Project addProject(Project project, User user){
     return null;

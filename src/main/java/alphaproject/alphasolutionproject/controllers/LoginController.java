@@ -40,7 +40,7 @@ public class LoginController {
     public String login(@ModelAttribute("User") User user, HttpSession hs) throws Exception {
         User currentUser = loginService.login(user.getEmail(), user.getPassword());
         hs.setAttribute("user", currentUser);
-        return "frontpage"; }
+        return "redirect:/showProjects"; }
 
     //This terminates the session and logs out
     @GetMapping("/logout")

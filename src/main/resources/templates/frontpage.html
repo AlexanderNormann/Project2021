@@ -35,17 +35,26 @@
     </tr>
     -->
 
-    <div class="card text-white bg-success mb-3 cardW">
-        <tr th:each="project: ${project}">
-            <div class="card-body">
-                <h5 class="card-title"><td th:text="${project.getProjectName()}"></td></h5>
-                <p class="card-text"><td th:text="${project.getProjectDescription()}"></td></p>
-                <p class="card-text"><td th:text="${project.getProjectTimeEstimate()}"></td> </p>
-                <a class="btn btn-outline-dark btn-xs">Go to project</a>
+    <table class="table table-light table-striped">
+        <thead>
+        <tr>
+            <th class="table-light"> Product Name</th>
+            <th class="table-light"> Description</th>
+            <th class="table-light"> Project time estimate</th>
 
-
-            </div>
+            <th class="table-light"> Delete wish</th>
         </tr>
+
+        <tr th:each="Project : ${projectlist}">
+            <td th:text="${Project.projectName}" class="table-light"></td>
+            <td th:text="${Project.projectDescription}" class="table-light"></td>
+            <td th:text="${Project.projectTimeEstimate}" class="table-light"></td>
+            <td></td>
+            <!--<td><a th:href="@{'/deleteProduct/'+${Products.id}}" class="btn btn-outline-danger" >Delete</a></td>-->
+
+        </tr>
+        </thead>
+    </table>
 
 
 

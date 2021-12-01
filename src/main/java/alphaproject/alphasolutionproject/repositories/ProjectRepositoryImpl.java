@@ -53,6 +53,28 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     }
   }
 
+  public ArrayList<Project> loadProjects(int id){
+    ArrayList<Project> projectList = new ArrayList<>();
+    try{
+      Connection connection = DBManager.getConnection();
+      String SQL = "select * from alphasolutions.project where userID_FK = ?";
+      PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+      preparedStatement.setInt(1, id);
+      ResultSet resultSet = preparedStatement.executeQuery();
+
+      while(resultSet.next()){
+        Project project = new Project();
+        project.setProjectName(resultSet.getString("projectname"));
+        project.setProjectDescription(resultSet.getString("projectdescription"));
+        project.setProjectTimeEstimate(resultSet.getString("projecttimeestimate"));
+        project.setProjectId(resultSet.getInt("projectid"));
+        projectList.add(project);
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return projectList;
+  }
 
   public ArrayList<Project> showProjects(int id){
     ArrayList<Project> listOfProjects = new ArrayList<>();
