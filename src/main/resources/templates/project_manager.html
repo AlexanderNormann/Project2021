@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="stylesheet.css" rel="stylesheet">
+    <title>Project Manager</title>
+</head>
+<body>
+
+<form/>
+<a th:href="@{'/goToCreateTask/'+${project.projectId}}"  class="btn btn-outline-dark btn-xs">Create task</a>
+</form>
+<div class="container">
+
+    <table class="table table-light table-striped">
+        <thead>
+        <tr>
+            <th class="table-light"> Project Name</th>
+            <th class="table-light"> Project Description</th>
+            <th class="table-light"> Project time estimate</th>
+            <th class="table-light"> Delete</th>
+            <th class="table-light"> Edit projekt</th>
+        </tr>
+
+
+        </tr>
+        </thead>
+    </table>
+</div>
+
+</body>
+</html>

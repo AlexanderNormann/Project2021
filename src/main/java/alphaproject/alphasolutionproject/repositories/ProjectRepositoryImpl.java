@@ -75,27 +75,26 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     }
     return projectList;
   }
-
-  public ArrayList<Project> showProjects(int id){
-    ArrayList<Project> listOfProjects = new ArrayList<>();
-    try {
-    Connection connection = DBManager.getConnection();
-    String SQL = "select * from alphasolutions.project" + "where userid_FK = ?";
-    PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-    ps.setInt(1, id);
-    ResultSet rs= ps.executeQuery();
-
-    while (rs.next()){
+  public Project loadSingleProject(int id){
     Project project = new Project();
-    project.setProjectName(rs.getString("projectname"));
-    project.setProjectDescription(rs.getString("projectdescription"));
-    project.setProjectTimeEstimate(rs.getString("projecttimeestimate"));
-    }
-    } catch (SQLException e){
-      e.printStackTrace();
+    try{
 
+      Connection connection = DBManager.getConnection();
+      String SQL = "select * from alphasolutions.project where userID_FK = ?";
+      PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+      preparedStatement.setInt(1, id);
+      ResultSet resultSet = preparedStatement.executeQuery();
+
+      while(resultSet.next()){
+        project.setProjectId(resultSet.getInt("projectid"));
+        project.setProjectName(resultSet.getString("projectname"));
+        project.setProjectDescription(resultSet.getString("projectdescription"));
+        project.setProjectTimeEstimate(resultSet.getString("projecttimeestimate"));
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
     }
-    return listOfProjects;
+    return project;
   }
 
   public void deleteProject(int id){
@@ -110,6 +109,8 @@ public class ProjectRepositoryImpl implements ProjectRepository{
       throwables.printStackTrace();
     }
   }
+
+
 
 
 }

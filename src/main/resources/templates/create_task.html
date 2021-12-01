@@ -27,6 +27,9 @@
         <label><b>Time estimate</b></label><br>
         <input type="text" th:field="*{taskTimeEstimate}" placeholder="Enter task estimate" required><br>
 
+        <label></label>
+        <input type="text" name="projectID" th:value="${projectID}">
+
         <!--"Create" submit button-->
         <button type="submit" class="btn btn-outline-dark btn-xxl button1">Create new task</button><br>
     </form>

@@ -8,7 +8,7 @@ import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 import java.sql.SQLException;
 
 public interface TaskRepository {
-  Task createTask(Task task, User user, Project project) throws SampleExeption;
+  Task createTask(Task task, int id) throws SampleExeption;
   Task addTaskToProject(Task task, Project project) throws SQLException, SampleExeption;
 }
 

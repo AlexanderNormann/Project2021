@@ -30,6 +30,9 @@ public class ProjectService {
   public ArrayList<Project> loadProjects(int id){
     return projectRepositoryImpl.loadProjects(id);
   }
+  public Project loadSingleProject(int id){
+    return projectRepositoryImpl.loadSingleProject(id);
+  }
 
 
   public Project addProject(Project project, User user){

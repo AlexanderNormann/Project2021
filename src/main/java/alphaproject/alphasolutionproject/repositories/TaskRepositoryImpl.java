@@ -10,7 +10,7 @@ import java.sql.*;
 
 public class TaskRepositoryImpl implements TaskRepository {
   @Override
-  public Task createTask(Task task, User user, Project project) throws SampleExeption {
+  public Task createTask(Task task, int id) throws SampleExeption {
     try {
       Connection connection = DBManager.getConnection();
       String SQL = "insert into Task(taskname, taskdescription, tasktimeestimate, projectID_FK) values (?,?,?,?)";
@@ -18,12 +18,12 @@ public class TaskRepositoryImpl implements TaskRepository {
       ps.setString(1, task.getTaskName());
       ps.setString(2, task.getTaskDescription());
       ps.setString(3, task.getTaskTimeEstimate());
-      ps.setInt(4, project.getProjectId());
+      ps.setInt(4, id);
       ps.execute();
       ResultSet rs = ps.getGeneratedKeys();
       rs.next();
-      int id = rs.getInt(1);
-      task.setTaskId(id);
+      int taskid = rs.getInt(1);
+      task.setTaskId(taskid);
       return task;
     } catch (SQLException e) {
       throw new SampleExeption(e.getMessage());
@@ -38,7 +38,7 @@ public class TaskRepositoryImpl implements TaskRepository {
   public Task addTaskToProject(Task task, Project project) throws SQLException, SampleExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "insert into task(tastname, taskdescription, projectID_FK) values (?,?,?)";
+      String SQL = "insert into task(taskname, taskdescription, projectID_FK) values (?,?,?)";
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, task.getTaskName());
       ps.setString(2, task.getTaskDescription());

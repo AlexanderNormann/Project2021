@@ -8,9 +8,7 @@ import alphaproject.alphasolutionproject.domain.services.TaskService;
 import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,18 +16,21 @@ import javax.servlet.http.HttpSession;
 public class TaskController {
   private TaskService taskService = new TaskService(new TaskRepositoryImpl());
 
-  @GetMapping("/goToCreateTask")
-  public String createTask(Model model){
+    @GetMapping("/goToCreateTask/{id}")
+  public String createTask(Model model, @PathVariable("id") int id){
   Task task = new Task();
   model.addAttribute("task", task);
+  model.addAttribute("projectID", id);
   return "create_task";
   }
 
-  @PostMapping("/saveTask")
-  public String saveTask(@ModelAttribute("task")Task task, Project project, HttpSession hs) throws SampleExeption {
-    User user = (User)hs.getAttribute("user");
-    taskService.createNewTask(task, user, project);
+  @PostMapping("/createTask/{id}")
+  public String saveTask(@ModelAttribute("task")Task task, @RequestParam("projectID") int projectID) throws SampleExeption {
+   // User user = (User)hs.getAttribute("user");
+    taskService.createNewTask(task, projectID);
     return "redirect:/showProjects";
   }
+
+
 
 }

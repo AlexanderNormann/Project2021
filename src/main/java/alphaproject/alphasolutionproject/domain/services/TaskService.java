@@ -15,7 +15,7 @@ public class TaskService {
     this.taskrepository = taskrepository;
   }
 
-  public Task createNewTask(Task task, User user, Project project) throws SampleExeption{
-    return taskRepositoryImpl.createTask(task, user, project);
+  public Task createNewTask(Task task, int id) throws SampleExeption{
+    return taskRepositoryImpl.createTask(task, id);
   }
 }
