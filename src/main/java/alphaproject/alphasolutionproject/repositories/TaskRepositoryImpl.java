@@ -37,7 +37,7 @@ public class TaskRepositoryImpl implements TaskRepository {
   public Task addTaskToProject(Task task, Project project) throws SQLException, SampleExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "task(tastname, taskdescription, projectID_FK) values (?,?,?)";
+      String SQL = "insert into task(tastname, taskdescription, projectID_FK) values (?,?,?)";
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, task.getTaskName());
       ps.setString(2, task.getTaskDescription());

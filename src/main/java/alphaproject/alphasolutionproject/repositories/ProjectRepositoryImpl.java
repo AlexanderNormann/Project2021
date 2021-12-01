@@ -39,10 +39,10 @@ public class ProjectRepositoryImpl implements ProjectRepository{
   public Project addProjectToList(Project project, User user) throws SampleExeption{
     try{
       Connection connection = DBManager.getConnection();
-      String SQL = "insert into projectlist(projecktlistname, projectlistdescription, projecttimeestimate, userID_FK) values (?,?,?,?)";
+      String SQL = "insert into project(projecktname, projectdescription, projecttimeestimate, userID_FK) values (?,?,?,?)";
       PreparedStatement ps = connection.prepareStatement(SQL);
-      ps.setString(1, project.getProjectListName() );
-      ps.setString(2, project.getProjectListDescription());
+      ps.setString(1, project.getProjectName() );
+      ps.setString(2, project.getProjectDescription());
       ps.setString(3,project.getProjectTimeEstimate());
       ps.setInt(4, user.getUserId());
       //getprojecetid
