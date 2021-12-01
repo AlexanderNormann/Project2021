@@ -19,12 +19,12 @@ public class ProjectService {
     return projectRepositoryImpl.createProject(project, user);
   }
 
-  public Project addProjectToList(Project project, User user) throws SampleExeption {
-    return null;
+  public void deleteProject(int id){
+    projectRepositoryImpl.deleteProject(id);
   }
 
-  public ArrayList<Project> showProjects(int id){
-  return projectRepositoryImpl.showProjects(id);
+  public Project addProjectToList(Project project, User user) throws SampleExeption {
+    return null;
   }
 
   public ArrayList<Project> loadProjects(int id){

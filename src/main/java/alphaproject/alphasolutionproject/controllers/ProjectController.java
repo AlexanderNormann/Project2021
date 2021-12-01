@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
@@ -47,13 +48,14 @@ public class ProjectController {
     return "frontpage";
   }
 
-
-
-
-  @GetMapping("/showprojects")
-  public String ProjectsFromList(Model model, HttpSession httpSession){
-    User user = (User)httpSession.getAttribute("user");
-    model.addAttribute("project", projectService.showProjects(user.getUserId()));
-    return "frontpage";
+  @GetMapping("/deleteProject/{id}")
+  public String deleteProject(@PathVariable("id") int id){
+    projectService.deleteProject(id);
+    return "redirect:/showProjects";
   }
+
+
+
+
+
 }

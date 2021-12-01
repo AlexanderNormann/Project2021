@@ -18,13 +18,6 @@
         <a th:href="@{/logout}" class="btn btn-dark btn-xs button3 logo">Log out</a>
         </nav>
     </div>
-    <!--<tr th:each="project : ${project}">
-        <td th:text="${project.getProjectName()}"></td> <br>
-        <td th:text="${project.getProjectDescription()}"></td> <br>
-        <td th:text="${project.getProjectTimeEstimate()}"></td>
-
-    </tr>
-    -->
     </div>
     <div class="container center">
         <h1>Welcome to your project site</h1>
@@ -34,27 +27,31 @@
         <p><td th:text="${User.getFirstName()}"></td></p>
     </tr>
     -->
+    <div class="container">
 
     <table class="table table-light table-striped">
         <thead>
         <tr>
-            <th class="table-light"> Product Name</th>
-            <th class="table-light"> Description</th>
+            <th class="table-light"> Project Name</th>
+            <th class="table-light"> Project Description</th>
             <th class="table-light"> Project time estimate</th>
-
-            <th class="table-light"> Delete wish</th>
+            <th class="table-light"> Delete</th>
+            <th class="table-light"> Edit projekt</th>
         </tr>
 
         <tr th:each="Project : ${projectlist}">
             <td th:text="${Project.projectName}" class="table-light"></td>
             <td th:text="${Project.projectDescription}" class="table-light"></td>
             <td th:text="${Project.projectTimeEstimate}" class="table-light"></td>
+            <td><a th:href="@{'/deleteProject/'+${Project.projectId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>
+            <td><a href="#"class="btn btn-outline-dark btn-xs button3 logo" >Edit</a></td>
             <td></td>
-            <!--<td><a th:href="@{'/deleteProduct/'+${Products.id}}" class="btn btn-outline-danger" >Delete</a></td>-->
+
 
         </tr>
         </thead>
     </table>
+    </div>
 
 
 
