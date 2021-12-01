@@ -35,10 +35,10 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
   public SubTask addSubTaskToList(SubTask subTask) throws SQLException, SampleExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "subtasklist(subtasklistname, subtasklistdescription) values (?,?)";
+      String SQL = "subtask(subtaskname, subtaskdescription) values (?,?)";
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-      ps.setString(1, subTask.getSubTaskListName());
-      ps.setString(2, subTask.getSubTaskListDescription());
+      ps.setString(1, subTask.getSubTaskName());
+      ps.setString(2, subTask.getSubTaskDescription());
       //gettasklistid
       ps.execute();
       return null;
