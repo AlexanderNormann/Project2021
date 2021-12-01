@@ -12,7 +12,7 @@ public interface ProjectRepository {
   //Project addProjetToList(Project project, User user) throws SampleExeption;
 
   //Foreign Keys skal sættes op til lists i SQL-databse
-  Project addProjetToList(Project project) throws SampleExeption;
+  Project addProjectToList(Project project, User user) throws SampleExeption;
   //deleteProjct(); er det en service?
   //showProjectFromList(); er det en service?
 

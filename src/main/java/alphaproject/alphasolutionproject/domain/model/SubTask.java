@@ -76,4 +76,8 @@ public class SubTask {
     this.subTaskId = subTaskId;
 
   }
+
+  public int getSubTaskId() {
+    return subTaskId;
+  }
 }

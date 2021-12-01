@@ -34,3 +34,7 @@ input[type=text], input[type=password]{
 .logo{
     margin-right: 1%;
 }
+
+.cardW{
+    width: 18rem;
+}

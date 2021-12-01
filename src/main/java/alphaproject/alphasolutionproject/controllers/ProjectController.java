@@ -50,5 +50,10 @@ public class ProjectController {
 
 
 
-
+  @GetMapping("/showprojects")
+  public String ProjectsFromList(Model model, HttpSession httpSession){
+    User user = (User)httpSession.getAttribute("user");
+    model.addAttribute("project", projectService.showProjects(user.getUserId()));
+    return "frontpage";
+  }
 }

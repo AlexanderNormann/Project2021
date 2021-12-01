@@ -1,5 +1,6 @@
 package alphaproject.alphasolutionproject.domain.services;
 
+import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.repositories.TaskRepository;
@@ -14,7 +15,7 @@ public class TaskService {
     this.taskrepository = taskrepository;
   }
 
-  public Task createNewTask(Task task, User user) throws SampleExeption{
-    return taskRepositoryImpl.createTask(task, user);
+  public Task createNewTask(Task task, User user, Project project) throws SampleExeption{
+    return taskRepositoryImpl.createTask(task, user, project);
   }
 }

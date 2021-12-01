@@ -19,8 +19,12 @@ public class ProjectService {
     return projectRepositoryImpl.createProject(project, user);
   }
 
-  public Project addProjectToList(Project project) throws SampleExeption {
-    return projectRepository.addProjetToList(project);
+  public Project addProjectToList(Project project, User user) throws SampleExeption {
+    return null;
+  }
+
+  public ArrayList<Project> showProjects(int id){
+  return projectRepositoryImpl.showProjects(id);
   }
 
   public ArrayList<Project> loadProjects(int id){
