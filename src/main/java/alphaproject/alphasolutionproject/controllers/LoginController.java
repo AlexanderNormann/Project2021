@@ -4,6 +4,7 @@ import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.domain.services.LoginService;
 import alphaproject.alphasolutionproject.repositories.UserRepositoryImpl;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,6 +50,18 @@ public class LoginController {
     }
     return "redirect:/";
     }
+
+/*
+    @GetMapping("/showFirstname")
+    public String showFirstname(Model model, HttpSession hs){
+        User user = (User) hs.getAttribute("user");
+        model.addAttribute("firstname", loginService.displayFirstname(user.getUserId()));
+        return "frontpage";
+    }
+
+ */
+
+
 
 
 

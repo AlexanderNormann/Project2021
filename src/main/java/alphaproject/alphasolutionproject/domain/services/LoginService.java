@@ -4,8 +4,11 @@ import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.repositories.UserRepository;
 import alphaproject.alphasolutionproject.repositories.UserRepositoryImpl;
 
+import java.util.ArrayList;
+
 public class LoginService {
     private UserRepository userRepository;
+    private UserRepositoryImpl userRepositoryImpl = new UserRepositoryImpl();
 
     public LoginService(UserRepository userRepository){
         this.userRepository = userRepository;
@@ -19,4 +22,10 @@ public User createUser(String firstname, String lastname, String email, String p
 User user = new User(firstname, lastname, email, password, authority);
 return userRepository.createUser(user);
 }
+/*
+public ArrayList<User> displayFirstname(int id){
+return userRepositoryImpl.displayFirstname(id);
+}
+ */
+
 }

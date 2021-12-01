@@ -29,8 +29,13 @@
     <div class="container center">
         <h1>Welcome to your project site</h1>
     </div>
+    <!--
+    <tr th:each ="firstname: ${firstname}">
+        <p><td th:text="${User.getFirstName()}"></td></p>
+    </tr>
+    -->
 
-    <div class="card cardW container">
+    <div class="card text-white bg-success mb-3 cardW">
         <tr th:each="project: ${project}">
             <div class="card-body">
                 <h5 class="card-title"><td th:text="${project.getProjectName()}"></td></h5>

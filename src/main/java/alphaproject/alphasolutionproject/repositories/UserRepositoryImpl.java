@@ -1,11 +1,13 @@
 package alphaproject.alphasolutionproject.repositories;
 
+import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UserRepositoryImpl implements UserRepository {
 
@@ -55,5 +57,29 @@ public class UserRepositoryImpl implements UserRepository {
       throw new Exception(e.getMessage());
     }
   }
+
+  /*
+  public ArrayList<User> displayFirstname(int id){
+    ArrayList<User> listOfUser = new ArrayList<>();
+    try {
+      Connection connection = DBManager.getConnection();
+      String SQL = "select * from alphasolution.user + where userID_FK = ?";
+      PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+      ps.setInt(1, id);
+      ResultSet rs= ps.executeQuery();
+
+      while (rs.next()){
+        User user= new User();
+        user.setFirstName(rs.getString("Firstname"));
+        user.setLastName(rs.getString("Lastname"));
+        user.setEmail(rs.getString("Email"));
+      }
+    } catch (SQLException e){
+      e.printStackTrace();
+
+    }
+    return listOfUser;
+  } */
+
 }
 
