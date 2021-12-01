@@ -39,6 +39,8 @@ public class ProjectController {
     return "frontpage";
   }
 
+  @GetMapping("/Hejmeddig")
+
 
 
 
