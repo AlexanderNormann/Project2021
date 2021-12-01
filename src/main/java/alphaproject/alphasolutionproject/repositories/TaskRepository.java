@@ -9,6 +9,6 @@ import java.sql.SQLException;
 
 public interface TaskRepository {
   Task createTask(Task task, User user, Project project) throws SampleExeption;
-  Task addTaskToProject(Task task) throws SQLException, SampleExeption;
+  Task addTaskToProject(Task task, Project project) throws SQLException, SampleExeption;
 }
 

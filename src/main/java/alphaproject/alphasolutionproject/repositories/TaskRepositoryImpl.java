@@ -34,13 +34,14 @@ public class TaskRepositoryImpl implements TaskRepository {
   //Foreign Keys skal sættes op til lists i SQL-databse
 
   @Override
-  public Task addTaskToProject(Task task) throws SQLException, SampleExeption {
+  public Task addTaskToProject(Task task, Project project) throws SQLException, SampleExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "tasklist(tasklistname, tasklistdescription) values (?,?)";
+      String SQL = "task(tastname, taskdescription, projectID_FK) values (?,?,?)";
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-      ps.setString(1, task.getTaskListName());
-      ps.setString(2, task.getTaskListDescription());
+      ps.setString(1, task.getTaskName());
+      ps.setString(2, task.getTaskDescription());
+      ps.setInt(3, project.getProjectId());
       //gettasklistid
       ps.execute();
       return null;
