@@ -24,9 +24,8 @@ public class TaskController {
   return "create_task";
   }
 
-  @PostMapping("/createTask/{id}")
+  @PostMapping("/createTask")
   public String saveTask(@ModelAttribute("task")Task task, @RequestParam("projectID") int projectID) throws SampleExeption {
-   // User user = (User)hs.getAttribute("user");
     taskService.createNewTask(task, projectID);
     return "redirect:/showProjects";
   }

@@ -61,8 +61,6 @@ public class ProjectController {
   @GetMapping("/goToProjectManager/{projectID}")
   public String goToProjectManager(@PathVariable("projectID") int projectID, Model model){
     projectService.loadSingleProject(projectID);
-    System.out.println("test");
-    System.out.println(projectService.loadSingleProject(projectID).getProjectId());
     model.addAttribute("project", projectService.loadSingleProject(projectID));
     return "project_manager";
   }
