@@ -28,12 +28,12 @@
         <input type="text" th:field="*{taskTimeEstimate}" placeholder="Enter task estimate" required><br>
 
         <label></label>
-        <input type="text" name="projectID" th:value="${projectID}" >
+        <input type="text" name="projectID" th:value="${projectID}" hidden >
 
         <!--"Create" submit button-->
         <button type="submit" class="btn btn-outline-dark btn-xxl button1">Create new task</button><br>
     </form>
-    <a th:href="@{/goToFrontPage}" class="btn btn-dark btn-xs button2">Return to project site</a>
+    <a th:href="@{/showTask}" class="btn btn-dark btn-xs button2">Return to project</a>
 </div>
 
 </body>

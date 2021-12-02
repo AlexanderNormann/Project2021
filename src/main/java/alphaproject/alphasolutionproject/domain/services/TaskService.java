@@ -6,6 +6,8 @@ import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.repositories.TaskRepository;
 import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
 
+import java.util.ArrayList;
+
 public class TaskService {
 
   private TaskRepository taskrepository;
@@ -17,5 +19,9 @@ public class TaskService {
 
   public Task createNewTask(Task task, int id) throws SampleExeption{
     return taskRepositoryImpl.createTask(task, id);
+  }
+
+  public ArrayList<Task> loadProjectTasks(int id){
+    return taskRepositoryImpl.loadTasks(id);
   }
 }

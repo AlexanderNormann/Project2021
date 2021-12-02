@@ -59,22 +59,12 @@ public class ProjectController {
   }
 
   @GetMapping("/goToProjectManager/{projectID}")
-  public String goToProjectManager(@PathVariable("projectID") int projectID, Model model){
+  public String goToProjectManager(@PathVariable("projectID") int projectID, Model model, HttpSession hs){
     projectService.loadSingleProject(projectID);
     model.addAttribute("project", projectService.loadSingleProject(projectID));
-    return "project_manager";
+    Project currentProject = new Project(projectID);
+    hs.setAttribute("currentProject", currentProject);
+    return "redirect:/showTask";
   }
-
-/*@GetMapping("/manageProject/{id}")
-  public String manageProject(Task task, @PathVariable("id") int id) throws SampleExeption {
-  taskService.createNewTask(task, id);
-   return "project_manager";
-}
-
- */
-
-
-
-
 
 }

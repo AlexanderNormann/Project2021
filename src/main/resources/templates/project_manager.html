@@ -8,26 +8,35 @@
 </head>
 <body>
 
-<form/>
-<a th:href="@{'/goToCreateTask/'+${project.projectId}}"  class="btn btn-outline-dark btn-xs">Create task</a>
-</form>
 <div class="container">
+    <h1>Project overview</h1>
+
+
+    <h2>Project Tasks</h2>
 
     <table class="table table-light table-striped">
         <thead>
         <tr>
-            <th class="table-light"> Project Name</th>
-            <th class="table-light"> Project Description</th>
-            <th class="table-light"> Project time estimate</th>
+            <th class="table-light"> Task Name</th>
+            <th class="table-light"> Task Description</th>
+            <th class="table-light"> Task time estimate</th>
             <th class="table-light"> Delete</th>
             <th class="table-light"> Edit projekt</th>
         </tr>
-
+        <tr th:each="Task : ${taskList}">
+            <td th:text="${Task.taskName}" class="table-light"></td>
+            <td th:text="${Task.taskDescription}" class="table-light"></td>
+            <td th:text="${Task.taskTimeEstimate}" class="table-light"></td>
+            <td><a th:href="@{'/deleteProject/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>
+            <td></td>
 
         </tr>
         </thead>
     </table>
+    <a th:href="@{'/goToCreateTask/'+${project.projectId}}"  class="btn btn-outline-dark btn-xs">Create task</a> <br>
+    <a th:href="@{/goToFrontPage}" class="btn btn-dark btn-xs button2">Return to project site</a>
 </div>
+
 
 </body>
 </html>

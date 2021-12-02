@@ -7,6 +7,7 @@ import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 import org.xml.sax.SAXException;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class TaskRepositoryImpl implements TaskRepository {
   @Override
@@ -30,10 +31,33 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
   }
 
+  public ArrayList<Task> loadTasks(int id){
+    ArrayList<Task> taskList = new ArrayList<>();
+    try{
+      Connection connection = DBManager.getConnection();
+      String SQL = "select * from alphasolutions.task where projectID_FK = ?";
+      PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+      preparedStatement.setInt(1, id);
+      ResultSet resultSet = preparedStatement.executeQuery();
+
+      while(resultSet.next()){
+        Task task = new Task();
+        task.setTaskName(resultSet.getString("taskname"));
+        task.setTaskDescription(resultSet.getString("taskdescription"));
+        task.setTaskTimeEstimate(resultSet.getString("tasktimeestimate"));
+        task.setTaskId(resultSet.getInt("taskid"));
+        taskList.add(task);
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return taskList;
+  }
+
 
   //Foreign Keys skal sættes op til lists i SQL-databse
 
-
+/*
   @Override
   public Task addTaskToProject(Task task, Project project) throws SQLException, SampleExeption {
     try {
@@ -51,4 +75,6 @@ public class TaskRepositoryImpl implements TaskRepository {
       throw new SampleExeption(e.getMessage());
     }
   }
+
+ */
 }
