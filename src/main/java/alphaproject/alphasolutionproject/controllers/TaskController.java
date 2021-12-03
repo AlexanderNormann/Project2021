@@ -44,6 +44,12 @@ public class TaskController {
       return "project_manager";
   }
 
+  @GetMapping("/deleteTask/{id}")
+  public String deleteTask(@PathVariable("id") int id){
+      taskService.deleteTask(id);
+      return "redirect:/showTask";
+  }
+
 
 
 }

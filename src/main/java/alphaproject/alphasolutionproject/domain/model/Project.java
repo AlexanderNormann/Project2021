@@ -28,6 +28,9 @@ public class Project {
   public String getProjectName() {
     return projectName;
   }
+  public String getProjectName(Project project) {
+    return project.getProjectName();
+  }
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;

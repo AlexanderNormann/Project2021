@@ -21,6 +21,10 @@ public class TaskService {
     return taskRepositoryImpl.createTask(task, id);
   }
 
+  public void deleteTask(int id){
+    taskRepositoryImpl.deleteTask(id);
+  }
+
   public ArrayList<Task> loadProjectTasks(int id){
     return taskRepositoryImpl.loadTasks(id);
   }

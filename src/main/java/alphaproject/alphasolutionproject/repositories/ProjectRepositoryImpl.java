@@ -57,7 +57,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     ArrayList<Project> projectList = new ArrayList<>();
     try{
       Connection connection = DBManager.getConnection();
-      String SQL = "select * from alphasolutions.project where userID_FK = ?";
+      String SQL = "select * from alphasolution.project where userID_FK = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
@@ -80,7 +80,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     try{
 
       Connection connection = DBManager.getConnection();
-      String SQL = "select * from alphasolutions.project where projectid = ?";
+      String SQL = "select * from alphasolution.project where projectid = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
@@ -100,7 +100,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
   public void deleteProject(int id){
     try{
       Connection connection = DBManager.getConnection();
-      String SQL = "delete from alphasolutions.project where projectid = ?";
+      String SQL = "delete from alphasolution.project where projectid = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       preparedStatement.execute();

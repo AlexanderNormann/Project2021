@@ -9,8 +9,11 @@
 <body>
 
 <div class="container">
-    <h1>Project overview</h1>
+    <div>
 
+    <h1>Your project: </h1>
+
+    </div>
 
     <h2>Project Tasks</h2>
 
@@ -27,7 +30,7 @@
             <td th:text="${Task.taskName}" class="table-light"></td>
             <td th:text="${Task.taskDescription}" class="table-light"></td>
             <td th:text="${Task.taskTimeEstimate}" class="table-light"></td>
-            <td><a th:href="@{'/deleteProject/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>
+            <td><a th:href="@{'/deleteTask/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>
             <td></td>
 
         </tr>
