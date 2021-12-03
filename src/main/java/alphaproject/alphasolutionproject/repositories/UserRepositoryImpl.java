@@ -1,13 +1,9 @@
 package alphaproject.alphasolutionproject.repositories;
 
-import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
 import java.sql.*;
-import java.util.ArrayList;
+
 
 public class UserRepositoryImpl implements UserRepository {
 

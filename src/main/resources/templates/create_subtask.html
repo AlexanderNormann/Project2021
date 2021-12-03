@@ -13,7 +13,7 @@
 <!--Create account form-->
 <div class="container">
     <!--Form method for saving user datta in databse-->
-    <form action="#" th:action="@{/saveSubTask}" th:object="${subTask}" method="post">
+    <form action="#" th:action="@{'/createSubTask/'}" th:object="${subTask}" method="post">
 
         <!--Firstname for account/DB-->
         <label><b>Project name</b></label><br>
@@ -27,10 +27,13 @@
         <label><b>Time estimate</b></label><br>
         <input type="text" th:field="*{subTaskTimeEstimate}" placeholder="Enter task estimate" required><br>
 
+        <label></label>
+        <input type="text" name="taskID" th:value="${taskID}"  >
+
         <!--"Create" submit button-->
-        <button type="submit" class="btn btn-outline-dark btn-xxl button1">Create task</button><br>
+        <button type="submit" class="btn btn-outline-dark btn-xxl button1">Create new subtask</button><br>
     </form>
-    <a th:href="@{/goToFrontPage}" class="btn btn-dark btn-xs button2">Return to project site</a>
+    <a th:href="@{/showTask}" class="btn btn-dark btn-xs button2">Return to project site</a>
 </div>
 
 </body>

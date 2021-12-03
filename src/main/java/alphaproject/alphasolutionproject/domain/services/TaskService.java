@@ -1,8 +1,6 @@
 package alphaproject.alphasolutionproject.domain.services;
 
-import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.Task;
-import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.repositories.TaskRepository;
 import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
 

@@ -2,15 +2,12 @@ package alphaproject.alphasolutionproject.controllers;
 
 
 import alphaproject.alphasolutionproject.domain.model.Project;
-import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.model.User;
-import alphaproject.alphasolutionproject.domain.services.LoginService;
 import alphaproject.alphasolutionproject.domain.services.ProjectService;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 import alphaproject.alphasolutionproject.domain.services.TaskService;
 import alphaproject.alphasolutionproject.repositories.ProjectRepositoryImpl;
 import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
-import alphaproject.alphasolutionproject.repositories.UserRepositoryImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

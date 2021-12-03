@@ -1,11 +1,7 @@
 package alphaproject.alphasolutionproject.repositories;
 
-import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.Task;
-import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
-import org.xml.sax.SAXException;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -66,29 +62,5 @@ public class TaskRepositoryImpl implements TaskRepository {
       throwables.printStackTrace();
     }
   }
-
-
-    //Foreign Keys skal sættes op til lists i SQL-databse
-
-/*
-  @Override
-  public Task addTaskToProject(Task task, Project project) throws SQLException, SampleExeption {
-    try {
-      Connection connection = DBManager.getConnection();
-      String SQL = "insert into task(taskname, taskdescription, projectID_FK) values (?,?,?)";
-      PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-      ps.setString(1, task.getTaskName());
-      ps.setString(2, task.getTaskDescription());
-      ps.setInt(3, project.getProjectId());
-      //gettasklistid
-      ps.execute();
-      return null;
-
-    } catch (SQLException e) {
-      throw new SampleExeption(e.getMessage());
-    }
-  }
-
- */
 
 }

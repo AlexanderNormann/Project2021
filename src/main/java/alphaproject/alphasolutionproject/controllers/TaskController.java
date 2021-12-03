@@ -20,10 +20,8 @@ public class TaskController {
   private TaskService taskService = new TaskService(new TaskRepositoryImpl());
 
     @GetMapping("/goToCreateTask/{id}")
-  public String createTask(Model model, @PathVariable("id") int id, HttpSession hs){
+  public String createTask(Model model, @PathVariable("id") int id){
   Task task = new Task();
-  Project project = (Project) hs.getAttribute("currentProject");
-  model.addAttribute("project", project);
   model.addAttribute("task", task);
   model.addAttribute("projectID", id);
   return "create_task";
@@ -37,7 +35,7 @@ public class TaskController {
 
   @GetMapping("/showTask")
   public String showTask(Model model, HttpSession hs){
-      //projectService.loadSingleProject(projectID);
+
       Project project = (Project) hs.getAttribute("currentProject");
       model.addAttribute("project", project);
       model.addAttribute("taskList", taskService.loadProjectTasks(project.getProjectId()));

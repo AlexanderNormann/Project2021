@@ -31,11 +31,40 @@
             <td th:text="${Task.taskDescription}" class="table-light"></td>
             <td th:text="${Task.taskTimeEstimate}" class="table-light"></td>
             <td><a th:href="@{'/deleteTask/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>
+            <td><a th:href="@{'/goToCreateSubTask/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Create New Subtask</a></td>
             <td></td>
 
         </tr>
         </thead>
     </table>
+
+    <br>
+    <br>
+    <br>
+
+    <!--<table class="table table-light table-striped">
+        <thead>
+        <tr>
+            <th class="table-light"> SubTask Name</th>
+            <th class="table-light"> SubTask Description</th>
+            <th class="table-light"> SubTask time estimate</th>
+            <th class="table-light"> Delete</th>
+            <th class="table-light"> Edit projekt</th>
+        </tr>
+        <tr th:each="subTask : ${taskList}">
+            <td th:text="${Task.taskName}" class="table-light"></td>
+            <td th:text="${Task.taskDescription}" class="table-light"></td>
+            <td th:text="${Task.taskTimeEstimate}" class="table-light"></td>
+            <td><a th:href="@{'/deleteTask/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>
+            <td></td>
+
+        </tr>
+        </thead>
+    </table>-->
+
+
+
+
     <a th:href="@{'/goToCreateTask/'+${project.projectId}}"  class="btn btn-outline-dark btn-xs">Create task</a> <br>
     <a th:href="@{/goToFrontPage}" class="btn btn-dark btn-xs button2">Return to project site</a>
 </div>

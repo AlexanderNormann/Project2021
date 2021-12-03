@@ -1,12 +1,8 @@
 package alphaproject.alphasolutionproject.domain.services;
 
 import alphaproject.alphasolutionproject.domain.model.SubTask;
-import alphaproject.alphasolutionproject.domain.model.Task;
-import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.repositories.SubTaskRepository;
 import alphaproject.alphasolutionproject.repositories.SubTaskRespositoryImpl;
-import alphaproject.alphasolutionproject.repositories.TaskRepository;
-import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
 
 public class SubTaskService {
 
@@ -17,7 +13,7 @@ public class SubTaskService {
       this.subTaskRepository = subTaskRepository;
     }
 
-    public SubTask createNewSubTask(SubTask subTask, User user) throws SampleExeption{
-      return subTaskRespositoryImpl.createSubTask(subTask, user);
+    public SubTask createNewSubTask(SubTask subTask, int id) throws SampleExeption{
+      return subTaskRespositoryImpl.createSubTask(subTask, id);
     }
   }
