@@ -1,5 +1,6 @@
 package alphaproject.alphasolutionproject.repositories;
 
+import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.SubTask;
 import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
@@ -52,6 +53,44 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
     }
     return subTaskList;
   }
+
+  public SubTask loadSingleSubtask(int id){
+    SubTask subTask = new SubTask();
+    try{
+
+      Connection connection = DBManager.getConnection();
+      String SQL = "select * from alphasolution.subtask where subtaskid = ?";
+      PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+      preparedStatement.setInt(1, id);
+      ResultSet resultSet = preparedStatement.executeQuery();
+
+      while(resultSet.next()){
+        subTask.setSubTaskId(resultSet.getInt("subtaskid"));
+        subTask.setSubTaskName(resultSet.getString("subtaskname"));
+        subTask.setSubTaskDescription(resultSet.getString("subtaskdescription"));
+        subTask.setSubTaskTimeEstimate(resultSet.getString("subtasktimeestimate"));
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return subTask;
+  }
+
+  public void editSubtask(SubTask subTask, int id) throws SampleExeption {
+    try {
+      Connection connection = DBManager.getConnection();
+      String SQL = "UPDATE alphasolution.subtask SET subtaskname = ?, subtaskdescription = ?, subtasktimeestimate = ? WHERE (subtaskid = ?);";
+      PreparedStatement ps = connection.prepareStatement(SQL);
+      ps.setString(1, subTask.getSubTaskName());
+      ps.setString(2, subTask.getSubTaskDescription());
+      ps.setString(3, subTask.getSubTaskTimeEstimate());
+      ps.setInt(4, id);
+      ps.execute();
+    } catch (SQLException e) {
+      throw new SampleExeption(e.getMessage());
+    }
+  }
+
   public void deleteSubTask(int id) {
     try {
       Connection connection = DBManager.getConnection();
@@ -64,6 +103,8 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
       throwables.printStackTrace();
     }
   }
+
+
 
 
 }

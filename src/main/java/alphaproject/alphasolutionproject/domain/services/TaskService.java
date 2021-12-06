@@ -18,6 +18,9 @@ public class TaskService {
   public Task createNewTask(Task task, int id) throws SampleExeption{
     return taskRepositoryImpl.createTask(task, id);
   }
+  public void editTask(Task task, int id) throws SampleExeption {
+    taskRepositoryImpl.editTask(task, id);
+  }
 
   public void deleteTask(int id){
     taskRepositoryImpl.deleteTask(id);
@@ -25,5 +28,9 @@ public class TaskService {
 
   public ArrayList<Task> loadProjectTasks(int id){
     return taskRepositoryImpl.loadTasks(id);
+  }
+
+  public Task loadSingleTask(int id){
+    return taskRepositoryImpl.loadSingleTask(id);
   }
 }

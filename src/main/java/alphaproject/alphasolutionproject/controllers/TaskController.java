@@ -68,6 +68,22 @@ public class TaskController {
     return "redirect:/showSubTask";
   }
 
+  @PostMapping("/editTask")
+  public String editTask(@ModelAttribute("editedTask") Task editedTask, @RequestParam("taskID") int taskID) throws SampleExeption {
+
+      taskService.editTask(editedTask, taskID);
+
+      return"redirect:/showTask";
+  }
+
+  @GetMapping("/goToEditTask/{taskID}")
+  public String goToEditTask(Model model, HttpSession hs, @PathVariable("taskID") int taskID){
+      Task task = taskService.loadSingleTask(taskID);
+    model.addAttribute("taskToEdit", task);
+    model.addAttribute("taskID", taskID);
+    return"edit_task";
+  }
+
 
 
 }

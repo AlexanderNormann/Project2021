@@ -10,10 +10,7 @@ import alphaproject.alphasolutionproject.repositories.ProjectRepositoryImpl;
 import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -56,12 +53,26 @@ public class ProjectController {
   }
 
   @GetMapping("/goToProjectManager/{projectID}")
-  public String goToProjectManager(@PathVariable("projectID") int projectID, Model model, HttpSession hs){
+  public String goToProjectManager(@PathVariable("projectID") int projectID, HttpSession hs){
     //projectService.loadSingleProject(projectID);
     //model.addAttribute("project", projectService.loadSingleProject(projectID));
     Project currentProject = new Project(projectID);
     hs.setAttribute("currentProject", currentProject);
     return "redirect:/showTask";
+  }
+
+  @GetMapping("/goToEditProject/{projectID}")
+  public String goToEditProject(Model model, @PathVariable("projectID") int projectID){
+    Project project = projectService.loadSingleProject(projectID);
+    model.addAttribute("projectToEdit", project);
+    model.addAttribute("projectID", projectID);
+    return "edit_project";
+  }
+
+  @PostMapping("/editProject")
+  public String editProject(@ModelAttribute("editedProject") Project editedProject, @RequestParam("projectID") int projectID) throws SampleExeption {
+    projectService.editProject(editedProject, projectID);
+    return"redirect:/showProjects";
   }
 
 }

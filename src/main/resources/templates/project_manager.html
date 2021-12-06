@@ -24,6 +24,7 @@
             <th class="table-light"> Task Description</th>
             <th class="table-light"> Task time estimate</th>
             <th class="table-light"> Delete</th>
+            <th class="table-light"> Subtasks</th>
             <th class="table-light"> Edit projekt</th>
         </tr>
         <tr th:each="Task : ${taskList}">
@@ -37,6 +38,8 @@
             <td><a th:href="@{'/deleteTask/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>
 
             <td><a th:href="@{'/goToSubtaskManager/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Go to subtasks</a></td>
+            <td><a th:href="@{'/goToEditTask/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Edit this task</a></td>
+
 
          <!--   <table class="table table-light table-triped">
         <thead>

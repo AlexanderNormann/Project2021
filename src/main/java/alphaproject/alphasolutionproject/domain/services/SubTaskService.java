@@ -23,6 +23,14 @@ public class SubTaskService {
       return subTaskRespositoryImpl.loadSubTasksByTaskID(id);
     }
 
+    public SubTask loadSingleSubtask(int id){
+      return subTaskRespositoryImpl.loadSingleSubtask(id);
+    }
+
+    public void editSubtask(SubTask subtask, int id) throws SampleExeption {
+      subTaskRespositoryImpl.editSubtask(subtask, id);
+    }
+
     public void deleteSubTask(int id){
       subTaskRespositoryImpl.deleteSubTask(id);
     }

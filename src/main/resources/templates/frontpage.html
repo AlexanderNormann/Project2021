@@ -32,6 +32,7 @@
             <th class="table-light"> Project Description</th>
             <th class="table-light"> Project time estimate</th>
             <th class="table-light"> Delete</th>
+            <th class="table-light"> Tasks</th>
             <th class="table-light"> Edit projekt</th>
         </tr>
 
@@ -40,7 +41,8 @@
             <td th:text="${Project.projectDescription}" class="table-light"></td>
             <td th:text="${Project.projectTimeEstimate}" class="table-light"></td>
             <td><a th:href="@{'/deleteProject/'+${Project.projectId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>
-            <td><a th:href="@{'/goToProjectManager/'+${Project.projectId}}" class="btn btn-outline-dark btn-xs button3 logo" >Edit</a></td>
+            <td><a th:href="@{'/goToProjectManager/'+${Project.projectId}}" class="btn btn-outline-dark btn-xs button3 logo" >Enter project</a></td>
+            <td><a th:href="@{'/goToEditProject/'+${Project.projectId}}" class="btn btn-outline-dark btn-xs button3 logo" >Edit this project</a></td>
             <td></td>
 
 

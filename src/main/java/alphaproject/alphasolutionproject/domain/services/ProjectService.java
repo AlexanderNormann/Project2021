@@ -23,6 +23,10 @@ public class ProjectService {
     projectRepositoryImpl.deleteProject(id);
   }
 
+  public void editProject(Project project, int id) throws SampleExeption {
+    projectRepositoryImpl.editProject(project, id);
+  }
+
   public ArrayList<Project> loadProjects(int id){
     return projectRepositoryImpl.loadProjects(id);
   }

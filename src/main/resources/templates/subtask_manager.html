@@ -20,6 +20,7 @@
         <th class="table-light"> Subtask Description</th>
         <th class="table-light"> Subtask time estimate</th>
         <th class="table-light"> Delete</th>
+        <th class="table-light"> Edit</th>
     </tr>
     <tr th:each="SubTask : ${subtaskList}">
         <td th:text="${SubTask.subTaskName}" class="table-light"></td>
@@ -30,6 +31,7 @@
         <td th:text="${SubTask.subTaskTimeEstimate}" class="table-light"></td>
 
         <td><a th:href="@{'/deleteSubTask/'+${SubTask.subTaskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>
+        <td><a th:href="@{'/goToEditSubtask/'+${SubTask.subTaskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Edit subtask</a></td>
 
     </tr>
     </thead>

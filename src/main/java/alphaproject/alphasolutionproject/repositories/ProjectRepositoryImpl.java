@@ -1,6 +1,7 @@
 package alphaproject.alphasolutionproject.repositories;
 
 import alphaproject.alphasolutionproject.domain.model.Project;
+import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 import java.sql.*;
@@ -76,6 +77,21 @@ public class ProjectRepositoryImpl implements ProjectRepository{
       throwables.printStackTrace();
     }
     return project;
+  }
+
+  public void editProject(Project project, int id) throws SampleExeption {
+    try {
+      Connection connection = DBManager.getConnection();
+      String SQL = "UPDATE alphasolution.project SET projectname = ?, projectdescription = ?, projecttimeestimate = ? WHERE (projectid = ?);";
+      PreparedStatement ps = connection.prepareStatement(SQL);
+      ps.setString(1, project.getProjectName());
+      ps.setString(2, project.getProjectDescription());
+      ps.setString(3, project.getProjectTimeEstimate());
+      ps.setInt(4, id);
+      ps.execute();
+    } catch (SQLException e) {
+      throw new SampleExeption(e.getMessage());
+    }
   }
 
   public void deleteProject(int id){

@@ -47,5 +47,19 @@ public class SubTaskController {
     return "redirect:/showSubTask";
   }
 
+  @GetMapping("/goToEditSubtask/{subtaskID}")
+  public String goToEditSubtask(Model model, @PathVariable("subtaskID") int subtaskID){
+    SubTask subTask = subTaskService.loadSingleSubtask(subtaskID);
+    model.addAttribute("subtaskToEdit", subTask);
+    model.addAttribute("subtaskID", subtaskID);
+    return "edit_subtask";
+  }
+
+  @PostMapping("/editSubtask")
+  public String editSubtask(@ModelAttribute("editedSubtask") SubTask editedSubtask, @RequestParam("subtaskID")int subtaskID) throws SampleExeption {
+    subTaskService.editSubtask(editedSubtask, subtaskID);
+    return "redirect:/showSubTask";
+  }
+
 
 }
