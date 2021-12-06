@@ -2,6 +2,7 @@ package alphaproject.alphasolutionproject.controllers;
 
 import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.SubTask;
+import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 import alphaproject.alphasolutionproject.domain.services.SubTaskService;
 import alphaproject.alphasolutionproject.repositories.SubTaskRespositoryImpl;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 @Controller
 public class SubTaskController {
@@ -26,15 +28,23 @@ public class SubTaskController {
   @PostMapping("/createSubTask")
   public String saveSubTask(@ModelAttribute("subTask") SubTask subTask, @RequestParam("taskID") int taskID) throws SampleExeption {
     subTaskService.createNewSubTask(subTask, taskID);
-    return "redirect:/showTask";
+    return "redirect:/showSubTask";
   }
 
   @GetMapping("/showSubTask")
   public String showSubTask(Model model, HttpSession hs){
-    Project project = (Project) hs.getAttribute("currentProject");
-    model.addAttribute("project", project);
+    Task task = (Task) hs.getAttribute("currentTask");
+    ArrayList<SubTask> subTasks = subTaskService.loadSubTasksByTaskID(task.getTaskId());
+    model.addAttribute("subtaskList", subTasks);
+    model.addAttribute("task", task);
     //model.addAttribute("taskList", taskService.loadProjectTasks(project.getProjectId()));
-    return "project_manager";
+    return "subtask_manager";
+  }
+
+  @GetMapping("/deleteSubTask/{id}")
+  public String deleteTask(@PathVariable("id") int id){
+    subTaskService.deleteSubTask(id);
+    return "redirect:/showSubTask";
   }
 
 

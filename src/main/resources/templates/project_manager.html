@@ -28,12 +28,30 @@
         </tr>
         <tr th:each="Task : ${taskList}">
             <td th:text="${Task.taskName}" class="table-light"></td>
-            <td th:text="${Task.taskDescription}" class="table-light"></td>
-            <td th:text="${Task.taskTimeEstimate}" class="table-light"></td>
-            <td><a th:href="@{'/deleteTask/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>
-            <td><a th:href="@{'/goToCreateSubTask/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Create New Subtask</a></td>
-            <td></td>
 
+            <td th:text="${Task.taskDescription}" class="table-light"></td>
+
+
+            <td th:text="${Task.taskTimeEstimate}" class="table-light"></td>
+
+            <td><a th:href="@{'/deleteTask/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>
+
+            <td><a th:href="@{'/goToSubtaskManager/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Go to subtasks</a></td>
+
+         <!--   <table class="table table-light table-triped">
+        <thead>
+        <tr>
+            <th class="table-light"> Subtask name</th>
+            <th class="table-light"> Subtask Description</th>
+            <th class="table-light"> Subtask time estimate</th>-->
+
+        <!--</tr>
+
+        <tr th:each="Task : ${taskList}">
+            <td th:text="${Task.subTasks}"></td>
+        </tr>
+        </thead>
+            </table>-->
         </tr>
         </thead>
     </table>
@@ -61,6 +79,7 @@
         </tr>
         </thead>
     </table>-->
+
 
 
 

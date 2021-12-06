@@ -10,6 +10,12 @@ public class SubTask {
   private int subTaskListId;
   private int subTaskId;
 
+  @Override
+  public String toString() {
+    return "Name: " + subTaskName + "\n " +
+        "Description: " + subTaskDescription + " " +
+        "Time estimate: " + subTaskTimeEstimate + "";
+  }
 
   public SubTask() {
   }

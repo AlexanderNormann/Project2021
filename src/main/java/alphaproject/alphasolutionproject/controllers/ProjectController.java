@@ -57,8 +57,8 @@ public class ProjectController {
 
   @GetMapping("/goToProjectManager/{projectID}")
   public String goToProjectManager(@PathVariable("projectID") int projectID, Model model, HttpSession hs){
-    projectService.loadSingleProject(projectID);
-    model.addAttribute("project", projectService.loadSingleProject(projectID));
+    //projectService.loadSingleProject(projectID);
+    //model.addAttribute("project", projectService.loadSingleProject(projectID));
     Project currentProject = new Project(projectID);
     hs.setAttribute("currentProject", currentProject);
     return "redirect:/showTask";

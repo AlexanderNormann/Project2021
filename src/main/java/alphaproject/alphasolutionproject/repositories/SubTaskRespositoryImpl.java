@@ -1,9 +1,11 @@
 package alphaproject.alphasolutionproject.repositories;
 
 import alphaproject.alphasolutionproject.domain.model.SubTask;
+import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class SubTaskRespositoryImpl implements SubTaskRepository{
 
@@ -27,4 +29,41 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
       throw new SampleExeption(e.getMessage());
     }
   }
+
+  public ArrayList<SubTask> loadSubTasksByTaskID(int id){
+    ArrayList<SubTask> subTaskList = new ArrayList<>();
+    try{
+      Connection connection = DBManager.getConnection();
+      String SQL = "select * from alphasolution.subtask where taskID_FK = ?";
+      PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+      preparedStatement.setInt(1, id);
+      ResultSet resultSet = preparedStatement.executeQuery();
+
+      while(resultSet.next()){
+        SubTask subTask = new SubTask();
+        subTask.setSubTaskName(resultSet.getString("subtaskname"));
+        subTask.setSubTaskDescription(resultSet.getString("subtaskdescription"));
+        subTask.setSubTaskTimeEstimate(resultSet.getString("subtasktimeestimate"));
+        subTask.setSubTaskId(resultSet.getInt("subtaskid"));
+        subTaskList.add(subTask);
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return subTaskList;
+  }
+  public void deleteSubTask(int id) {
+    try {
+      Connection connection = DBManager.getConnection();
+      String SQL = "delete from alphasolution.subtask where subtaskid = ?";
+      PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+      preparedStatement.setInt(1, id);
+      preparedStatement.execute();
+
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+  }
+
+
 }

@@ -1,5 +1,7 @@
 package alphaproject.alphasolutionproject.domain.model;
 
+import java.util.ArrayList;
+
 public class Task {
   private String taskName;
   private String taskDescription;
@@ -8,15 +10,28 @@ public class Task {
   private String taskListDescription;
   private int taskListId;
   private int taskId;
+  private ArrayList<SubTask> subTasks;
 
 
   public Task() {
+  }
+
+  public Task(int taskId){
+    this.taskId = taskId;
   }
 
   public Task(String tastName, String taskDescription, String taskTimeEstimate) {
     this.taskName = tastName;
     this.taskDescription = taskDescription;
     this.taskTimeEstimate = taskTimeEstimate;
+  }
+
+  public ArrayList<SubTask> getSubTasks() {
+    return subTasks;
+  }
+
+  public void setSubTasks(ArrayList<SubTask> subTasks) {
+    this.subTasks = subTasks;
   }
 
   public String getTaskName() {
