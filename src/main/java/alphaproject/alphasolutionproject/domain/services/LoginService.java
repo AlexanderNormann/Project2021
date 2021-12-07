@@ -24,4 +24,8 @@ return userRepository.createUser(user);
 public User loadSingleUser(int id){
         return userRepositoryImpl.loadSingleUser(id);
 }
+
+public void editUser(User user, int id) throws SampleExeption {
+        userRepositoryImpl.editUser(user, id);
+}
 }

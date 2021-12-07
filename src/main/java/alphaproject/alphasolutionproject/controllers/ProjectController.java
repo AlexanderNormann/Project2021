@@ -36,6 +36,27 @@ public class ProjectController {
     return "redirect:/showProjects";
   }
 
+  @GetMapping("/goToUserDetail")
+  public String goToUserDetail(Model model, HttpSession hs){
+    User user = (User)hs.getAttribute("user");
+    model.addAttribute("currentUser", loginService.loadSingleUser(user.getUserId()));
+    return "user_manager";
+  }
+
+
+  @GetMapping("/goToEditUser")
+  public String editProfile(Model model, HttpSession hs){
+    User user = (User)hs.getAttribute("user");
+    model.addAttribute("currentuser", loginService.loadSingleUser(user.getUserId()));
+    return "edit_user";
+  }
+  @PostMapping("/editUser")
+  public String editProfile(@ModelAttribute ("editedUser") User editedUser, HttpSession hs ) throws SampleExeption {
+    User user = (User)hs.getAttribute("user");
+    loginService.editUser(editedUser, user.getUserId());
+    return "redirect:/goToUserDetail";
+  }
+
   @GetMapping("/goToFrontPage")
   public String goToFrontPage(){
     return "redirect:/showProjects";

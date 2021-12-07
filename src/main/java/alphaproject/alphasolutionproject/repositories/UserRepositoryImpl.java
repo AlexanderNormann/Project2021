@@ -78,5 +78,21 @@ public class UserRepositoryImpl implements UserRepository {
     }
     return user;
   }
+
+  public void editUser(User user, int id) throws SampleExeption {
+    try {
+      Connection connection = DBManager.getConnection();
+      String SQL = "UPDATE alphasolution.user SET firstname = ?, lastname = ?, email = ?, password = ? WHERE (userid = ?);";
+      PreparedStatement ps = connection.prepareStatement(SQL);
+      ps.setString(1, user.getFirstName());
+      ps.setString(2, user.getLastName());
+      ps.setString(3, user.getEmail());
+      ps.setString(4, user.getPassword());
+      ps.setInt(5, id);
+      ps.execute();
+    } catch (SQLException e) {
+      throw new SampleExeption(e.getMessage());
+    }
+  }
 }
 
