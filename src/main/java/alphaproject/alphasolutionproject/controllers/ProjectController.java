@@ -6,8 +6,10 @@ import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.domain.services.ProjectService;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 import alphaproject.alphasolutionproject.domain.services.TaskService;
+import alphaproject.alphasolutionproject.domain.services.LoginService;
 import alphaproject.alphasolutionproject.repositories.ProjectRepositoryImpl;
 import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
+import alphaproject.alphasolutionproject.repositories.UserRepositoryImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class ProjectController {
   private ProjectService projectService = new ProjectService(new ProjectRepositoryImpl());
+  private LoginService loginService = new LoginService((new UserRepositoryImpl()));
   private TaskService taskService = new TaskService(new TaskRepositoryImpl());
 
   @GetMapping("/goToCreateProject")
@@ -43,6 +46,7 @@ public class ProjectController {
   public String showProjects(Model model, HttpSession hs){
     User user = (User)hs.getAttribute("user");
     model.addAttribute("projectlist", projectService.loadProjects(user.getUserId()));
+    model.addAttribute("currentUser", loginService.loadSingleUser(user.getUserId()));
     return "frontpage";
   }
 

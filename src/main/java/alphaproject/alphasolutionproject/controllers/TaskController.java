@@ -50,6 +50,8 @@ public class TaskController {
        */
       model.addAttribute("project", project);
       model.addAttribute("taskList", tasks);
+      model.addAttribute("currentProject", projectService.loadSingleProject(project.getProjectId()));
+
       return "project_manager";
   }
 

@@ -20,4 +20,8 @@ public User createUser(String firstname, String lastname, String email, String p
 User user = new User(firstname, lastname, email, password, authority);
 return userRepository.createUser(user);
 }
+
+public User loadSingleUser(int id){
+        return userRepositoryImpl.loadSingleUser(id);
+}
 }

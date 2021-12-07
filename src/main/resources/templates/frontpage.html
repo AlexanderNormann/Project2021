@@ -19,7 +19,11 @@
     </div>
     <div class="container center">
 
-        <h1>Welcome to your project site</h1>
+        <h1 >
+            Welcome
+           <span th:text="${currentUser.firstName}"></span>
+        </h1>
+        <h2>This is your project overview</h2>
 
     </div>
 

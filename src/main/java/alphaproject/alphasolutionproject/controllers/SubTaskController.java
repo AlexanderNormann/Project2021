@@ -5,7 +5,9 @@ import alphaproject.alphasolutionproject.domain.model.SubTask;
 import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 import alphaproject.alphasolutionproject.domain.services.SubTaskService;
+import alphaproject.alphasolutionproject.domain.services.TaskService;
 import alphaproject.alphasolutionproject.repositories.SubTaskRespositoryImpl;
+import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 @Controller
 public class SubTaskController {
   private SubTaskService subTaskService = new SubTaskService(new SubTaskRespositoryImpl());
+  private TaskService taskService = new TaskService(new TaskRepositoryImpl());
 
   @GetMapping("/goToCreateSubTask/{id}")
   public String createTask(Model model, @PathVariable("id") int id){
@@ -37,6 +40,7 @@ public class SubTaskController {
     ArrayList<SubTask> subTasks = subTaskService.loadSubTasksByTaskID(task.getTaskId());
     model.addAttribute("subtaskList", subTasks);
     model.addAttribute("task", task);
+    model.addAttribute("currentTask", taskService.loadSingleTask(task.getTaskId()));
     //model.addAttribute("taskList", taskService.loadProjectTasks(project.getProjectId()));
     return "subtask_manager";
   }

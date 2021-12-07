@@ -1,5 +1,6 @@
 package alphaproject.alphasolutionproject.repositories;
 
+import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
 import java.sql.*;
@@ -52,6 +53,30 @@ public class UserRepositoryImpl implements UserRepository {
     } catch (SQLException e){
       throw new Exception(e.getMessage());
     }
+  }
+
+  public User loadSingleUser(int id){
+    User user = new User();
+    try{
+
+      Connection connection = DBManager.getConnection();
+      String SQL = "select * from alphasolution.user where userid = ?";
+      PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+      preparedStatement.setInt(1, id);
+      ResultSet resultSet = preparedStatement.executeQuery();
+
+      while(resultSet.next()){
+        user.setUserId(resultSet.getInt("userid"));
+        user.setFirstName(resultSet.getString("firstname"));
+        user.setLastName(resultSet.getString("lastname"));
+        user.setPassword(resultSet.getString("password"));
+        user.setEmail(resultSet.getString("email"));
+        user.setAuthority(resultSet.getBoolean("role"));
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return user;
   }
 }
 
