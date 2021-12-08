@@ -19,7 +19,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, project.getProjectName());
       ps.setString(2,project.getProjectDescription());
-      ps.setString(3, project.getProjectTimeEstimate());
+      ps.setInt(3, project.getProjectTimeEstimate());
       ps.setInt(4, user.getUserId());
       ps.execute();
       ResultSet rs = ps.getGeneratedKeys();
@@ -48,7 +48,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
         Project project = new Project();
         project.setProjectName(resultSet.getString("projectname"));
         project.setProjectDescription(resultSet.getString("projectdescription"));
-        project.setProjectTimeEstimate(resultSet.getString("projecttimeestimate"));
+        project.setProjectTimeEstimate(resultSet.getInt("projecttimeestimate"));
         project.setProjectId(resultSet.getInt("projectid"));
         projectList.add(project);
       }
@@ -71,7 +71,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
         project.setProjectId(resultSet.getInt("projectid"));
         project.setProjectName(resultSet.getString("projectname"));
         project.setProjectDescription(resultSet.getString("projectdescription"));
-        project.setProjectTimeEstimate(resultSet.getString("projecttimeestimate"));
+        project.setProjectTimeEstimate(resultSet.getInt("projecttimeestimate"));
       }
     } catch (SQLException throwables) {
       throwables.printStackTrace();
@@ -86,7 +86,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
       PreparedStatement ps = connection.prepareStatement(SQL);
       ps.setString(1, project.getProjectName());
       ps.setString(2, project.getProjectDescription());
-      ps.setString(3, project.getProjectTimeEstimate());
+      ps.setInt(3, project.getProjectTimeEstimate());
       ps.setInt(4, id);
       ps.execute();
     } catch (SQLException e) {

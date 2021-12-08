@@ -18,7 +18,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, subTask.getSubTaskName());
       ps.setString(2, subTask.getSubTaskDescription());
-      ps.setString(3, subTask.getSubTaskTimeEstimate());
+      ps.setInt(3, subTask.getSubTaskTimeEstimate());
       ps.setInt(4, id);
       ps.execute();
       ResultSet rs = ps.getGeneratedKeys();
@@ -44,7 +44,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
         SubTask subTask = new SubTask();
         subTask.setSubTaskName(resultSet.getString("subtaskname"));
         subTask.setSubTaskDescription(resultSet.getString("subtaskdescription"));
-        subTask.setSubTaskTimeEstimate(resultSet.getString("subtasktimeestimate"));
+        subTask.setSubTaskTimeEstimate(resultSet.getInt("subtasktimeestimate"));
         subTask.setSubTaskId(resultSet.getInt("subtaskid"));
         subTaskList.add(subTask);
       }
@@ -68,7 +68,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
         subTask.setSubTaskId(resultSet.getInt("subtaskid"));
         subTask.setSubTaskName(resultSet.getString("subtaskname"));
         subTask.setSubTaskDescription(resultSet.getString("subtaskdescription"));
-        subTask.setSubTaskTimeEstimate(resultSet.getString("subtasktimeestimate"));
+        subTask.setSubTaskTimeEstimate(resultSet.getInt("subtasktimeestimate"));
       }
     } catch (SQLException throwables) {
       throwables.printStackTrace();
@@ -83,7 +83,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
       PreparedStatement ps = connection.prepareStatement(SQL);
       ps.setString(1, subTask.getSubTaskName());
       ps.setString(2, subTask.getSubTaskDescription());
-      ps.setString(3, subTask.getSubTaskTimeEstimate());
+      ps.setInt(3, subTask.getSubTaskTimeEstimate());
       ps.setInt(4, id);
       ps.execute();
     } catch (SQLException e) {

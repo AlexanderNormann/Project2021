@@ -26,7 +26,7 @@
 
         <!--Email for account/DB-->
         <label><b>Time estimate</b></label><br>
-        <input type="text" th:field="*{subTaskTimeEstimate}" th:value="${subtaskToEdit.subTaskTimeEstimate}" required><br>
+        <input type="number" th:field="*{subTaskTimeEstimate}" th:value="${subtaskToEdit.subTaskTimeEstimate}" required><br>
 
         <label></label>
         <input type="text" name="subtaskID" th:value="${subtaskID}" hidden >

@@ -4,30 +4,27 @@ public class Project {
 
   private String projectName;
   private String projectDescription;
-  private String projectTimeEstimate;
-  private String projectListName;
-  private String projectListDescription;
-  private int projectListId;
+  private int projectTimeEstimate;
   private int projectId;
 
   public Project() {
   }
 
-  public Project(int id){
+  public Project(int id) {
     this.projectId = id;
   }
 
-  public Project(String projectName, String projectDescription, String projectTimeEstimate) {
+  public Project(String projectName, String projectDescription, int projectTimeEstimate) {
     this.projectName = projectName;
     this.projectDescription = projectDescription;
     this.projectTimeEstimate = projectTimeEstimate;
   }
 
 
-
   public String getProjectName() {
     return projectName;
   }
+
   public String getProjectName(Project project) {
     return project.getProjectName();
   }
@@ -44,11 +41,11 @@ public class Project {
     this.projectDescription = projectDescription;
   }
 
-  public String getProjectTimeEstimate() {
+  public int getProjectTimeEstimate() {
     return projectTimeEstimate;
   }
 
-  public void setProjectTimeEstimate(String projectTimeEstimate) {
+  public void setProjectTimeEstimate(int projectTimeEstimate) {
     this.projectTimeEstimate = projectTimeEstimate;
   }
 
@@ -60,27 +57,4 @@ public class Project {
     this.projectId = projectId;
   }
 
-  public String getProjectListName() {
-    return projectListName;
-  }
-
-  public void setProjectListName(String projectListName) {
-    this.projectListName = projectListName;
-  }
-
-  public String getProjectListDescription() {
-    return projectListDescription;
-  }
-
-  public void setProjectListDescription(String projectListDescription) {
-    this.projectListDescription = projectListDescription;
-  }
-
-  public int getProjectListId() {
-    return projectListId;
-  }
-
-  public void setProjectListId(int projectListId) {
-    this.projectListId = projectListId;
-  }
 }

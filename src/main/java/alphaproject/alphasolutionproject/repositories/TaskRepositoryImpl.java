@@ -15,7 +15,7 @@ public class TaskRepositoryImpl implements TaskRepository {
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, task.getTaskName());
       ps.setString(2, task.getTaskDescription());
-      ps.setString(3, task.getTaskTimeEstimate());
+      ps.setInt(3, task.getTaskTimeEstimate());
       ps.setInt(4, id);
       ps.execute();
       ResultSet rs = ps.getGeneratedKeys();
@@ -41,7 +41,7 @@ public class TaskRepositoryImpl implements TaskRepository {
         Task task = new Task();
         task.setTaskName(resultSet.getString("taskname"));
         task.setTaskDescription(resultSet.getString("taskdescription"));
-        task.setTaskTimeEstimate(resultSet.getString("tasktimeestimate"));
+        task.setTaskTimeEstimate(resultSet.getInt("tasktimeestimate"));
         task.setTaskId(resultSet.getInt("taskid"));
         taskList.add(task);
       }
@@ -65,7 +65,7 @@ public class TaskRepositoryImpl implements TaskRepository {
         task.setTaskId(resultSet.getInt("taskid"));
         task.setTaskName(resultSet.getString("taskname"));
         task.setTaskDescription(resultSet.getString("taskdescription"));
-        task.setTaskTimeEstimate(resultSet.getString("tasktimeestimate"));
+        task.setTaskTimeEstimate(resultSet.getInt("tasktimeestimate"));
       }
     } catch (SQLException throwables) {
       throwables.printStackTrace();
@@ -80,7 +80,7 @@ public class TaskRepositoryImpl implements TaskRepository {
       PreparedStatement ps = connection.prepareStatement(SQL);
       ps.setString(1, task.getTaskName());
       ps.setString(2, task.getTaskDescription());
-      ps.setString(3, task.getTaskTimeEstimate());
+      ps.setInt(3, task.getTaskTimeEstimate());
       ps.setInt(4, id);
       ps.execute();
     } catch (SQLException e) {

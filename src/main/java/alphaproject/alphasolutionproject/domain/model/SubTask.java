@@ -4,10 +4,7 @@ public class SubTask {
 
   private String subTaskName;
   private String subTaskDescription;
-  private String subTaskTimeEstimate;
-  private String subTaskListName;
-  private String subTaskListDescription;
-  private int subTaskListId;
+  private int subTaskTimeEstimate;
   private int subTaskId;
 
   @Override
@@ -20,7 +17,7 @@ public class SubTask {
   public SubTask() {
   }
 
-  public SubTask(String subTaskName, String subTaskDescription, String subTaskTimeEstimate) {
+  public SubTask(String subTaskName, String subTaskDescription, int subTaskTimeEstimate) {
     this.subTaskName = subTaskName;
     this.subTaskDescription = subTaskDescription;
     this.subTaskTimeEstimate = subTaskTimeEstimate;
@@ -42,11 +39,11 @@ public class SubTask {
     this.subTaskDescription = subTaskDescription;
   }
 
-  public String getSubTaskTimeEstimate() {
+  public int getSubTaskTimeEstimate() {
     return subTaskTimeEstimate;
   }
 
-  public void setSubTaskTimeEstimate(String subTaskTimeEstimate) {
+  public void setSubTaskTimeEstimate(int subTaskTimeEstimate) {
     this.subTaskTimeEstimate = subTaskTimeEstimate;
   }
 
@@ -54,29 +51,6 @@ public class SubTask {
     return subTaskId;
   }
 
-  public String getSubTaskListName() {
-    return subTaskListName;
-  }
-
-  public void setSubTaskListName(String subTaskListName) {
-    this.subTaskListName = subTaskListName;
-  }
-
-  public String getSubTaskListDescription() {
-    return subTaskListDescription;
-  }
-
-  public void setSubTaskListDescription(String subTaskListDescription) {
-    this.subTaskListDescription = subTaskListDescription;
-  }
-
-  public int getSubTaskListId() {
-    return subTaskListId;
-  }
-
-  public void setSubTaskListId(int subTaskListId) {
-    this.subTaskListId = subTaskListId;
-  }
 
   public void setSubTaskId(int subTaskId) {
     this.subTaskId = subTaskId;

@@ -23,9 +23,10 @@ private boolean authority;
     this.authority = authority;
   }
 
-  public User(String email, String password) {
+  public User(String email, String password, int id) {
     this.email = email;
     this.password = password;
+    this.userId = id;
   }
 
   public String getFirstName() {

@@ -19,7 +19,7 @@ public class UserRepositoryImpl implements UserRepository {
       ResultSet resultSet = ps.executeQuery();
       if (resultSet.next()) {
         int id = resultSet.getInt("userid");
-        User user = new User(email, password);
+        User user = new User(email, password, id);
         user.setUserId(id);
         return user;
       } else {

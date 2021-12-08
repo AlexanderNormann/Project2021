@@ -5,12 +5,10 @@ import java.util.ArrayList;
 public class Task {
   private String taskName;
   private String taskDescription;
-  private String taskTimeEstimate;
-  private String taskListName;
-  private String taskListDescription;
-  private int taskListId;
+  private int taskTimeEstimate;
   private int taskId;
   private ArrayList<SubTask> subTasks;
+  private int taskTotalTime;
 
 
   public Task() {
@@ -20,10 +18,18 @@ public class Task {
     this.taskId = taskId;
   }
 
-  public Task(String tastName, String taskDescription, String taskTimeEstimate) {
+  public Task(String tastName, String taskDescription, int taskTimeEstimate) {
     this.taskName = tastName;
     this.taskDescription = taskDescription;
     this.taskTimeEstimate = taskTimeEstimate;
+  }
+
+  public int getTaskTotalTime() {
+    return taskTotalTime;
+  }
+
+  public void setTaskTotalTime(int taskTotalTime) {
+    this.taskTotalTime = taskTotalTime;
   }
 
   public ArrayList<SubTask> getSubTasks() {
@@ -50,40 +56,16 @@ public class Task {
     this.taskDescription = taskDescription;
   }
 
-  public String getTaskTimeEstimate() {
+  public int getTaskTimeEstimate() {
     return taskTimeEstimate;
   }
 
-  public void setTaskTimeEstimate(String taskTimeEstimate) {
+  public void setTaskTimeEstimate(int taskTimeEstimate) {
     this.taskTimeEstimate = taskTimeEstimate;
   }
 
   public int getTaskId() {
     return taskId;
-  }
-
-  public String getTaskListName() {
-    return taskListName;
-  }
-
-  public void setTaskListName(String taskListName) {
-    this.taskListName = taskListName;
-  }
-
-  public String getTaskListDescription() {
-    return taskListDescription;
-  }
-
-  public void setTaskListDescription(String taskListDescription) {
-    this.taskListDescription = taskListDescription;
-  }
-
-  public int getTaskListId() {
-    return taskListId;
-  }
-
-  public void setTaskListId(int taskListId) {
-    this.taskListId = taskListId;
   }
 
   public void setTaskId(int taskId) {

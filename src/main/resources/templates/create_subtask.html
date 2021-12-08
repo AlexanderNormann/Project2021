@@ -25,7 +25,7 @@
 
         <!--Email for account/DB-->
         <label><b>Time estimate</b></label><br>
-        <input type="text" th:field="*{subTaskTimeEstimate}" placeholder="Enter task estimate" required><br>
+        <input type="number" th:field="*{subTaskTimeEstimate}" placeholder="Enter task estimate" required><br>
 
         <label></label>
         <input type="text" name="taskID" th:value="${taskID}" hidden >
