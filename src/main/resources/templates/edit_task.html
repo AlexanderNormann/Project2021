@@ -24,10 +24,6 @@
         <label><b>Task description</b></label><br>
         <input type="text" th:field="*{taskDescription}" th:value="${taskToEdit.taskDescription}" required><br>
 
-        <!--Email for account/DB-->
-        <label><b>Time estimate</b></label><br>
-        <input type="text" th:field="*{taskTimeEstimate}" th:value="${taskToEdit.taskTimeEstimate}" required><br>
-
         <label></label>
         <input type="text" name="taskID" th:value="${taskID}" hidden >
 

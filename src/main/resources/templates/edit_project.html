@@ -24,10 +24,6 @@
         <label><b>Task description</b></label><br>
         <input type="text" th:field="*{projectDescription}" th:value="${projectToEdit.projectDescription}" required><br>
 
-        <!--Email for account/DB-->
-        <label><b>Time estimate</b></label><br>
-        <input type="text" th:field="*{projectTimeEstimate}" th:value="${projectToEdit.projectTimeEstimate}" required><br>
-
         <label></label>
         <input type="text" name="projectID" th:value="${projectID}" hidden >
 

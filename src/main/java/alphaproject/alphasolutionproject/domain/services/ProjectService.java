@@ -1,6 +1,7 @@
 package alphaproject.alphasolutionproject.domain.services;
 
 import alphaproject.alphasolutionproject.domain.model.Project;
+import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.repositories.ProjectRepository;
 import alphaproject.alphasolutionproject.repositories.ProjectRepositoryImpl;
@@ -15,6 +16,8 @@ public class ProjectService {
   public ProjectService(ProjectRepository projectRepository){
     this.projectRepository = projectRepository;
   }
+
+
 
   public Project createNewProject(Project project, User user) throws SampleExeption {
     return projectRepositoryImpl.createProject(project, user);
@@ -34,4 +37,9 @@ public class ProjectService {
   public Project loadSingleProject(int id){
     return projectRepositoryImpl.loadSingleProject(id);
   }
+  /*public ArrayList<Task> calculateTotalTaskTime(Project project){
+    return calculatorService.calculateTotalTaskTime(project);
+  }
+
+   */
 }

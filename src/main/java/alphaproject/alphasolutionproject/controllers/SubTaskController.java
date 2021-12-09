@@ -1,6 +1,5 @@
 package alphaproject.alphasolutionproject.controllers;
 
-import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.SubTask;
 import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.services.SampleExeption;
@@ -41,7 +40,6 @@ public class SubTaskController {
     model.addAttribute("subtaskList", subTasks);
     model.addAttribute("task", task);
     model.addAttribute("currentTask", taskService.loadSingleTask(task.getTaskId()));
-    //model.addAttribute("taskList", taskService.loadProjectTasks(project.getProjectId()));
     return "subtask_manager";
   }
 

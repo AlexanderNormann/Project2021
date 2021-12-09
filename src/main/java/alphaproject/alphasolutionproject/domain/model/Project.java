@@ -4,8 +4,10 @@ public class Project {
 
   private String projectName;
   private String projectDescription;
+  private int projectTotalPrice;
   private int projectTimeEstimate;
   private int projectId;
+  private int projectHourlyRate = 1500;
 
   public Project() {
   }
@@ -57,4 +59,19 @@ public class Project {
     this.projectId = projectId;
   }
 
+  public int getProjectTotalPrice() {
+    return projectTotalPrice;
+  }
+
+  public void setProjectTotalPrice(int projectTotalPrice) {
+    this.projectTotalPrice = projectTotalPrice;
+  }
+
+  public int getProjectHourlyRate() {
+    return projectHourlyRate;
+  }
+
+  public void setProjectHourlyRate(int projectHourlyRate) {
+    this.projectHourlyRate = projectHourlyRate;
+  }
 }
