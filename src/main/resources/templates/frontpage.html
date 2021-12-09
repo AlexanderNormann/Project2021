@@ -34,7 +34,7 @@
         <tr>
             <th class="table-light"> Project Name</th>
             <th class="table-light"> Project Description</th>
-            <th class="table-light"> Project time estimate in hours</th>
+            <th class="table-light"> Project time estimate</th>
             <th class="table-light"> Expected cost of project</th>
             <th class="table-light"> Delete</th>
             <th class="table-light"> Tasks</th>
@@ -44,8 +44,8 @@
         <tr th:each="Project : ${projectlist}">
             <td th:text="${Project.projectName}" class="table-light"></td>
             <td th:text="${Project.projectDescription}" class="table-light"></td>
-            <td th:text="${Project.projectTimeEstimate}" class="table-light"></td>
-            <td th:text="${Project.projectTotalPrice}" class="table-light"></td>
+            <td class="table-light"><p><span th:text="${Project.projectTimeEstimate}"> </span>hrs</p></td>
+            <td class="table-light"><p><span th:text="${Project.projectTotalPrice}"></span>dkk</p></td>
 
             <td><a th:href="@{'/deleteProject/'+${Project.projectId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>
             <td><a th:href="@{'/goToProjectManager/'+${Project.projectId}}" class="btn btn-outline-dark btn-xs button3 logo" >Enter project</a></td>

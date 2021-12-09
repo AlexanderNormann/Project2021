@@ -24,7 +24,7 @@
         <tr>
             <th class="table-light"> Task Name</th>
             <th class="table-light"> Task Description</th>
-            <th class="table-light"> Task estimated time in hours</th>
+            <th class="table-light"> Task estimated time</th>
             <th class="table-light"> Delete</th>
             <th class="table-light"> Subtasks</th>
             <th class="table-light"> Edit projekt</th>
@@ -34,7 +34,7 @@
             <td th:text="${Task.taskName}" class="table-light"></td>
 
             <td th:text="${Task.taskDescription}" class="table-light"></td>
-            <td th:text="${Task.taskTimeEstimate}" class="table-light"></td>
+            <td  class="table-light"><p><span th:text="${Task.taskTimeEstimate}"></span>hrs</p></td>
 
             <td><a th:href="@{'/deleteTask/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>
 
