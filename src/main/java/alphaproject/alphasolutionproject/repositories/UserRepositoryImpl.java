@@ -37,7 +37,7 @@ public class UserRepositoryImpl implements UserRepository {
     try{
       System.out.println(user.getAuthority());
       Connection connection = DBManager.getConnection();
-      String SQL = "insert into User (firstname, lastname, email, password, role) values (?, ?, ?, ?, ?) ";
+      String SQL = "insert into heroku_8c82ce867ddf156.User (firstname, lastname, email, password, role) values (?, ?, ?, ?, ?) ";
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, user.getFirstName());
       ps.setString(2, user.getLastName());
