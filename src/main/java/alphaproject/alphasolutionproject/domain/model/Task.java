@@ -1,5 +1,6 @@
 package alphaproject.alphasolutionproject.domain.model;
-
+import alphaproject.alphasolutionproject.domain.services.TaskService;
+import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
 import java.util.ArrayList;
 
 public class Task {
@@ -8,8 +9,8 @@ public class Task {
   private int taskTimeEstimate;
   private int taskId;
   private ArrayList<SubTask> subTasks;
-  private int taskTotalTime;
-
+  private TaskService taskService = new TaskService(new TaskRepositoryImpl());
+  private SubTask subTask = new SubTask();
 
   public Task() {
   }
@@ -22,14 +23,6 @@ public class Task {
     this.taskName = tastName;
     this.taskDescription = taskDescription;
     this.taskTimeEstimate = taskTimeEstimate;
-  }
-
-  public int getTaskTotalTime() {
-    return taskTotalTime;
-  }
-
-  public void setTaskTotalTime(int taskTotalTime) {
-    this.taskTotalTime = taskTotalTime;
   }
 
   public ArrayList<SubTask> getSubTasks() {
@@ -72,4 +65,7 @@ public class Task {
     this.taskId = taskId;
 
   }
+
+
+
 }

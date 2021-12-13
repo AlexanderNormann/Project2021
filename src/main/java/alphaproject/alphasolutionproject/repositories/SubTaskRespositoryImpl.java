@@ -1,9 +1,7 @@
 package alphaproject.alphasolutionproject.repositories;
 
-import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.SubTask;
-import alphaproject.alphasolutionproject.domain.model.Task;
-import alphaproject.alphasolutionproject.domain.services.SampleExeption;
+import alphaproject.alphasolutionproject.domain.services.ProjectExeption;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,7 +9,7 @@ import java.util.ArrayList;
 public class SubTaskRespositoryImpl implements SubTaskRepository{
 
   @Override
-  public SubTask createSubTask(SubTask subTask, int id) throws SampleExeption {
+  public SubTask createSubTask(SubTask subTask, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
       String SQL = "insert into Subtask(subtaskname, subtaskdescription, subtasktimeestimate, taskID_FK) values (?,?,?,?)";
@@ -27,7 +25,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
       subTask.getSubTaskId(subTaskid);
       return subTask;
     } catch (SQLException e) {
-      throw new SampleExeption(e.getMessage());
+      throw new ProjectExeption(e.getMessage());
     }
   }
 
@@ -76,7 +74,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
     return subTask;
   }
 
-  public void editSubtask(SubTask subTask, int id) throws SampleExeption {
+  public void editSubtask(SubTask subTask, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
       String SQL = "UPDATE alphasolution.subtask SET subtaskname = ?, subtaskdescription = ?, subtasktimeestimate = ? WHERE (subtaskid = ?);";
@@ -87,7 +85,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
       ps.setInt(4, id);
       ps.execute();
     } catch (SQLException e) {
-      throw new SampleExeption(e.getMessage());
+      throw new ProjectExeption(e.getMessage());
     }
   }
 

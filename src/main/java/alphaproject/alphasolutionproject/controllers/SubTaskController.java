@@ -2,7 +2,7 @@ package alphaproject.alphasolutionproject.controllers;
 
 import alphaproject.alphasolutionproject.domain.model.SubTask;
 import alphaproject.alphasolutionproject.domain.model.Task;
-import alphaproject.alphasolutionproject.domain.services.SampleExeption;
+import alphaproject.alphasolutionproject.domain.services.ProjectExeption;
 import alphaproject.alphasolutionproject.domain.services.SubTaskService;
 import alphaproject.alphasolutionproject.domain.services.TaskService;
 import alphaproject.alphasolutionproject.repositories.SubTaskRespositoryImpl;
@@ -28,7 +28,7 @@ public class SubTaskController {
   }
 
   @PostMapping("/createSubTask")
-  public String saveSubTask(@ModelAttribute("subTask") SubTask subTask, @RequestParam("taskID") int taskID) throws SampleExeption {
+  public String saveSubTask(@ModelAttribute("subTask") SubTask subTask, @RequestParam("taskID") int taskID) throws ProjectExeption {
     subTaskService.createNewSubTask(subTask, taskID);
     return "redirect:/showSubTask";
   }
@@ -58,7 +58,7 @@ public class SubTaskController {
   }
 
   @PostMapping("/editSubtask")
-  public String editSubtask(@ModelAttribute("editedSubtask") SubTask editedSubtask, @RequestParam("subtaskID")int subtaskID) throws SampleExeption {
+  public String editSubtask(@ModelAttribute("editedSubtask") SubTask editedSubtask, @RequestParam("subtaskID")int subtaskID) throws ProjectExeption {
     subTaskService.editSubtask(editedSubtask, subtaskID);
     return "redirect:/showSubTask";
   }

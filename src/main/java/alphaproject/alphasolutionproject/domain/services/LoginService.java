@@ -25,7 +25,7 @@ public User loadSingleUser(int id){
         return userRepositoryImpl.loadSingleUser(id);
 }
 
-public void editUser(User user, int id) throws SampleExeption {
+public void editUser(User user, int id) throws ProjectExeption {
         userRepositoryImpl.editUser(user, id);
 }
 }

@@ -27,14 +27,9 @@
         </tr>
         <tr>
             <td th:text="${currentUser.firstName}" class="table-light"></td>
-
             <td th:text="${currentUser.lastName}" class="table-light"></td>
-
-
             <td th:text="${currentUser.email}" class="table-light"></td>
             <td th:text="${currentUser.password}" class="table-light"></td>
-
-           <!-- <td><a th:href="@{'/deleteSubTask/'+${SubTask.subTaskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Delete</a></td>-->
             <td><a th:href="@{/goToEditUser}" class="btn btn-outline-dark btn-xs button3 logo" >Edit profile</a></td>
 
         </tr>

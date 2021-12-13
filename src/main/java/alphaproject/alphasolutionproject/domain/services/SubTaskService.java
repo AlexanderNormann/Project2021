@@ -11,11 +11,16 @@ public class SubTaskService {
     private SubTaskRepository subTaskRepository;
     private SubTaskRespositoryImpl subTaskRespositoryImpl = new SubTaskRespositoryImpl();
 
+
     public SubTaskService(SubTaskRepository subTaskRepository){
       this.subTaskRepository = subTaskRepository;
     }
 
-    public SubTask createNewSubTask(SubTask subTask, int id) throws SampleExeption{
+    public SubTaskService(){
+
+    }
+
+    public SubTask createNewSubTask(SubTask subTask, int id) throws ProjectExeption {
       return subTaskRespositoryImpl.createSubTask(subTask, id);
     }
 
@@ -27,7 +32,7 @@ public class SubTaskService {
       return subTaskRespositoryImpl.loadSingleSubtask(id);
     }
 
-    public void editSubtask(SubTask subtask, int id) throws SampleExeption {
+    public void editSubtask(SubTask subtask, int id) throws ProjectExeption {
       subTaskRespositoryImpl.editSubtask(subtask, id);
     }
 

@@ -11,20 +11,21 @@
     <h1>Edit project</h1>
 </div>
 
-<!--Create account form-->
+
 <div class="container">
-    <!--Form method for saving user datta in databse-->
+    <!--Form method for updating project data in databse-->
     <form action="#" th:action="@{'/editProject/'}" th:object="${projectToEdit}" method="post">
 
-        <!--Firstname for account/DB-->
+        <!--Updated name for task/DB-->
         <label><b>Task name</b></label><br>
         <input type="text" th:field="*{projectName}" th:value="${projectToEdit.projectName}" required><br>
 
-        <!--Lastname for account/DB-->
+        <!--Updated description for task/DB-->
         <label><b>Task description</b></label><br>
         <input type="text" th:field="*{projectDescription}" th:value="${projectToEdit.projectDescription}" required><br>
 
         <label></label>
+        <!--Hidden field to automatically enter subtaskID-->
         <input type="text" name="projectID" th:value="${projectID}" hidden >
 
 

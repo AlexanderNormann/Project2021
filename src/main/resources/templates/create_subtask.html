@@ -10,20 +10,20 @@
 <div class="container center">
     <h1>Create subtask</h1>
 </div>
-<!--Create account form-->
+
 <div class="container">
-    <!--Form method for saving user datta in databse-->
+    <!--Form method for saving subtask data in databse-->
     <form action="#" th:action="@{'/createSubTask/'}" th:object="${subTask}" method="post">
 
-        <!--Firstname for account/DB-->
-        <label><b>Project name</b></label><br>
+        <!--Name for subtask/DB-->
+        <label><b>Subtask name</b></label><br>
         <input type="text" th:field="*{subTaskName}" placeholder="Enter task name" required><br>
 
-        <!--Lastname for account/DB-->
-        <label><b>Project description</b></label><br>
+        <!--description for subtask/DB-->
+        <label><b>Subtask description</b></label><br>
         <input type="text" th:field="*{subTaskDescription}" placeholder="Enter task description" required><br>
 
-        <!--Email for account/DB-->
+        <!--Time estimate for subtask/DB-->
         <label><b>Time estimate</b></label><br>
         <input type="number" th:field="*{subTaskTimeEstimate}" placeholder="Enter task estimate" required><br>
 

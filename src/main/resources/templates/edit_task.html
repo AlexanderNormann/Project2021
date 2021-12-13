@@ -13,18 +13,19 @@
 
 <!--Create account form-->
 <div class="container">
-    <!--Form method for saving user datta in databse-->
+    <!--Form method for updating task data in databse-->
     <form action="#" th:action="@{'/editTask/'}" th:object="${taskToEdit}" method="post">
 
-        <!--Firstname for account/DB-->
+        <!--Updated name for task/DB-->
         <label><b>Task name</b></label><br>
         <input type="text" th:field="*{taskName}" th:value="${taskToEdit.taskName}" required><br>
 
-        <!--Lastname for account/DB-->
+        <!--Updated description for subtask/DB-->
         <label><b>Task description</b></label><br>
         <input type="text" th:field="*{taskDescription}" th:value="${taskToEdit.taskDescription}" required><br>
 
         <label></label>
+        <!--Hidden field to automatically enter taskID-->
         <input type="text" name="taskID" th:value="${taskID}" hidden >
 
 

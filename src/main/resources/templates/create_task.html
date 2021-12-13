@@ -10,16 +10,16 @@
 <div class="container center">
     <h1>Create task</h1>
 </div>
-<!--Create account form-->
+
 <div class="container">
-    <!--Form method for saving user datta in databse-->
+    <!--Form method for saving task data in databse-->
     <form action="#" th:action="@{'/createTask/'}" th:object="${task}" method="post">
 
-        <!--Firstname for account/DB-->
+        <!--Name for Task/DB-->
         <label><b>Task name</b></label><br>
         <input type="text" th:field="*{taskName}" placeholder="Enter task name" required><br>
 
-        <!--Lastname for account/DB-->
+        <!--Description for Task/DB-->
         <label><b>Task description</b></label><br>
         <input type="text" th:field="*{taskDescription}" placeholder="Enter task description" required><br>
 

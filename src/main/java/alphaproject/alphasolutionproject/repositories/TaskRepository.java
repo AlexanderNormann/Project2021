@@ -1,13 +1,9 @@
 package alphaproject.alphasolutionproject.repositories;
 
-import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.Task;
-import alphaproject.alphasolutionproject.domain.model.User;
-import alphaproject.alphasolutionproject.domain.services.SampleExeption;
-
-import java.sql.SQLException;
+import alphaproject.alphasolutionproject.domain.services.ProjectExeption;
 
 public interface TaskRepository {
-  Task createTask(Task task, int id) throws SampleExeption;
+  Task createTask(Task task, int id) throws ProjectExeption;
 }
 

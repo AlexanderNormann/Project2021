@@ -1,14 +1,13 @@
 package alphaproject.alphasolutionproject.repositories;
 
-import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.Task;
-import alphaproject.alphasolutionproject.domain.services.SampleExeption;
+import alphaproject.alphasolutionproject.domain.services.ProjectExeption;
 import java.sql.*;
 import java.util.ArrayList;
 
 public class TaskRepositoryImpl implements TaskRepository {
   @Override
-  public Task createTask(Task task, int id) throws SampleExeption {
+  public Task createTask(Task task, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
       String SQL = "insert into Task(taskname, taskdescription, tasktimeestimate, projectID_FK) values (?,?,?,?)";
@@ -24,7 +23,7 @@ public class TaskRepositoryImpl implements TaskRepository {
       task.setTaskId(taskid);
       return task;
     } catch (SQLException e) {
-      throw new SampleExeption(e.getMessage());
+      throw new ProjectExeption(e.getMessage());
     }
   }
 
@@ -73,7 +72,7 @@ public class TaskRepositoryImpl implements TaskRepository {
     return task;
   }
 
-  public void editTask(Task task, int id) throws SampleExeption {
+  public void editTask(Task task, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
       String SQL = "UPDATE alphasolution.task SET taskname = ?, taskdescription = ?, tasktimeestimate = ? WHERE (taskid = ?);";
@@ -84,7 +83,7 @@ public class TaskRepositoryImpl implements TaskRepository {
       ps.setInt(4, id);
       ps.execute();
     } catch (SQLException e) {
-      throw new SampleExeption(e.getMessage());
+      throw new ProjectExeption(e.getMessage());
     }
   }
 

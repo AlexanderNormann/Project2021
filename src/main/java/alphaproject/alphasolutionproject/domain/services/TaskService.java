@@ -10,6 +10,7 @@ public class TaskService {
 
   private TaskRepository taskrepository;
   private TaskRepositoryImpl taskRepositoryImpl = new TaskRepositoryImpl();
+  private SubTaskService subTaskService = new SubTaskService();
 
   public TaskService(TaskRepository taskrepository){
     this.taskrepository = taskrepository;
@@ -17,10 +18,10 @@ public class TaskService {
 
 
 
-  public Task createNewTask(Task task, int id) throws SampleExeption{
+  public Task createNewTask(Task task, int id) throws ProjectExeption {
     return taskRepositoryImpl.createTask(task, id);
   }
-  public void editTask(Task task, int id) throws SampleExeption {
+  public void editTask(Task task, int id) throws ProjectExeption {
     taskRepositoryImpl.editTask(task, id);
   }
 
@@ -35,5 +36,6 @@ public class TaskService {
   public Task loadSingleTask(int id){
     return taskRepositoryImpl.loadSingleTask(id);
   }
+
 
 }

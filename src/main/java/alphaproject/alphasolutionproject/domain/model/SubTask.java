@@ -1,11 +1,20 @@
 package alphaproject.alphasolutionproject.domain.model;
 
+import alphaproject.alphasolutionproject.domain.services.SubTaskService;
+import alphaproject.alphasolutionproject.domain.services.TaskService;
+import alphaproject.alphasolutionproject.repositories.SubTaskRespositoryImpl;
+import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
+
+import java.util.ArrayList;
+
 public class SubTask {
 
   private String subTaskName;
   private String subTaskDescription;
   private int subTaskTimeEstimate;
   private int subTaskId;
+  private TaskService taskService = new TaskService(new TaskRepositoryImpl());
+  private SubTaskService subTaskService = new SubTaskService(new SubTaskRespositoryImpl());
 
   @Override
   public String toString() {
@@ -51,7 +60,6 @@ public class SubTask {
     return subTaskId;
   }
 
-
   public void setSubTaskId(int subTaskId) {
     this.subTaskId = subTaskId;
 
@@ -60,4 +68,6 @@ public class SubTask {
   public int getSubTaskId() {
     return subTaskId;
   }
+
+
 }

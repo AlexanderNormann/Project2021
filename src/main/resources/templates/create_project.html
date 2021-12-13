@@ -10,16 +10,15 @@
 <div class="container center">
     <h1>Create Project</h1>
 </div>
-<!--Create account form-->
 <div class="container">
-    <!--Form method for saving user datta in databse-->
+    <!--Form method for saving project in database-->
     <form action="#" th:action="@{/saveProject}" th:object="${project}" method="post">
 
-        <!--Firstname for account/DB-->
+        <!--Name for project/DB-->
         <label><b>Project name</b></label><br>
         <input type="text" th:field="*{projectName}" placeholder="Enter project name" required><br>
 
-        <!--Lastname for account/DB-->
+        <!--Description for project/DB-->
         <label><b>Project description</b></label><br>
         <input type="text" th:field="*{projectDescription}" placeholder="Enter project description" required><br>
 

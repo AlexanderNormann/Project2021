@@ -1,5 +1,10 @@
 package alphaproject.alphasolutionproject.domain.model;
 
+import alphaproject.alphasolutionproject.domain.services.ProjectService;
+import alphaproject.alphasolutionproject.repositories.ProjectRepositoryImpl;
+
+import java.util.ArrayList;
+
 public class Project {
 
   private String projectName;
@@ -8,6 +13,8 @@ public class Project {
   private int projectTimeEstimate;
   private int projectId;
   private int projectHourlyRate = 1500;
+  private ProjectService projectService = new ProjectService(new ProjectRepositoryImpl());
+  private SubTask subTask = new SubTask();
 
   public Project() {
   }
@@ -21,7 +28,6 @@ public class Project {
     this.projectDescription = projectDescription;
     this.projectTimeEstimate = projectTimeEstimate;
   }
-
 
   public String getProjectName() {
     return projectName;

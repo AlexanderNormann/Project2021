@@ -1,8 +1,7 @@
 package alphaproject.alphasolutionproject.repositories;
 
-import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.model.User;
-import alphaproject.alphasolutionproject.domain.services.SampleExeption;
+import alphaproject.alphasolutionproject.domain.services.ProjectExeption;
 import java.sql.*;
 
 
@@ -27,7 +26,7 @@ public class UserRepositoryImpl implements UserRepository {
       }
 
     } catch (SQLException e) {
-      throw new SampleExeption(e.getMessage());
+      throw new ProjectExeption(e.getMessage());
     }
 
   }
@@ -79,7 +78,7 @@ public class UserRepositoryImpl implements UserRepository {
     return user;
   }
 
-  public void editUser(User user, int id) throws SampleExeption {
+  public void editUser(User user, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
       String SQL = "UPDATE alphasolution.user SET firstname = ?, lastname = ?, email = ?, password = ? WHERE (userid = ?);";
@@ -91,7 +90,7 @@ public class UserRepositoryImpl implements UserRepository {
       ps.setInt(5, id);
       ps.execute();
     } catch (SQLException e) {
-      throw new SampleExeption(e.getMessage());
+      throw new ProjectExeption(e.getMessage());
     }
   }
 }

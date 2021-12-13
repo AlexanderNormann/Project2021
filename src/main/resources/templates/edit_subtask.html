@@ -11,24 +11,25 @@
     <h1>Edit subtask</h1>
 </div>
 
-<!--Create account form-->
+
 <div class="container">
-    <!--Form method for saving user datta in databse-->
+    <!--Form method for updating subtask data in databse-->
     <form action="#" th:action="@{'/editSubtask/'}" th:object="${subtaskToEdit}" method="post">
 
-        <!--Firstname for account/DB-->
+        <!--Updated name for subtask/DB-->
         <label><b>Task name</b></label><br>
         <input type="text" th:field="*{subTaskName}" th:value="${subtaskToEdit.subTaskName}" required><br>
 
-        <!--Lastname for account/DB-->
+        <!--Updated description for subtask/DB-->
         <label><b>Task description</b></label><br>
         <input type="text" th:field="*{subTaskDescription}" th:value="${subtaskToEdit.subTaskDescription}" required><br>
 
-        <!--Email for account/DB-->
+        <!--Updated time estimate for subtask/DB-->
         <label><b>Time estimate</b></label><br>
         <input type="number" th:field="*{subTaskTimeEstimate}" th:value="${subtaskToEdit.subTaskTimeEstimate}" required><br>
 
         <label></label>
+        <!--Hidden field to automatically enter subtaskID-->
         <input type="text" name="subtaskID" th:value="${subtaskID}" hidden >
 
 
