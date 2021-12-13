@@ -39,7 +39,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     ArrayList<Project> projectList = new ArrayList<>();
     try{
       Connection connection = DBManager.getConnection();
-      String SQL = "select * from alphasolution.project where userID_FK = ?";
+      String SQL = "select * from heroku_8c82ce867ddf156.project where userID_FK = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
@@ -62,7 +62,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     try{
 
       Connection connection = DBManager.getConnection();
-      String SQL = "select * from alphasolution.project where projectid = ?";
+      String SQL = "select * from heroku_8c82ce867ddf156.project where projectid = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
@@ -82,7 +82,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
   public void editProject(Project project, int id) throws SampleExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "UPDATE alphasolution.project SET projectname = ?, projectdescription = ?, projecttimeestimate = ? WHERE (projectid = ?);";
+      String SQL = "UPDATE heroku_8c82ce867ddf156.project SET projectname = ?, projectdescription = ?, projecttimeestimate = ? WHERE (projectid = ?);";
       PreparedStatement ps = connection.prepareStatement(SQL);
       ps.setString(1, project.getProjectName());
       ps.setString(2, project.getProjectDescription());
@@ -97,7 +97,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
   public void deleteProject(int id){
     try{
       Connection connection = DBManager.getConnection();
-      String SQL = "delete from alphasolution.project where projectid = ?";
+      String SQL = "delete from heroku_8c82ce867ddf156.project where projectid = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       preparedStatement.execute();
