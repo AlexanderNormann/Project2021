@@ -60,7 +60,7 @@ public class UserRepositoryImpl implements UserRepository {
     try{
 
       Connection connection = DBManager.getConnection();
-      String SQL = "select * from alphasolution.user where userid = ?";
+      String SQL = "select * from heroku_8c82ce867ddf156.user where userid = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
@@ -82,7 +82,7 @@ public class UserRepositoryImpl implements UserRepository {
   public void editUser(User user, int id) throws SampleExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "UPDATE alphasolution.user SET firstname = ?, lastname = ?, email = ?, password = ? WHERE (userid = ?);";
+      String SQL = "UPDATE heroku_8c82ce867ddf156.user SET firstname = ?, lastname = ?, email = ?, password = ? WHERE (userid = ?);";
       PreparedStatement ps = connection.prepareStatement(SQL);
       ps.setString(1, user.getFirstName());
       ps.setString(2, user.getLastName());
