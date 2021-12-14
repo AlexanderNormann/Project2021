@@ -10,12 +10,11 @@ public class TaskRepositoryImpl implements TaskRepository {
   public Task createTask(Task task, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "insert into Task(taskname, taskdescription, tasktimeestimate, projectID_FK) values (?,?,?,?)";
+      String SQL = "insert into Task(taskname, taskdescription, projectID_FK) values (?,?,?)";
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, task.getTaskName());
       ps.setString(2, task.getTaskDescription());
-      ps.setInt(3, task.getTaskTimeEstimate());
-      ps.setInt(4, id);
+      ps.setInt(3, id);
       ps.execute();
       ResultSet rs = ps.getGeneratedKeys();
       rs.next();
@@ -40,7 +39,6 @@ public class TaskRepositoryImpl implements TaskRepository {
         Task task = new Task();
         task.setTaskName(resultSet.getString("taskname"));
         task.setTaskDescription(resultSet.getString("taskdescription"));
-        task.setTaskTimeEstimate(resultSet.getInt("tasktimeestimate"));
         task.setTaskId(resultSet.getInt("taskid"));
         taskList.add(task);
       }
@@ -64,7 +62,6 @@ public class TaskRepositoryImpl implements TaskRepository {
         task.setTaskId(resultSet.getInt("taskid"));
         task.setTaskName(resultSet.getString("taskname"));
         task.setTaskDescription(resultSet.getString("taskdescription"));
-        task.setTaskTimeEstimate(resultSet.getInt("tasktimeestimate"));
       }
     } catch (SQLException throwables) {
       throwables.printStackTrace();
@@ -75,12 +72,11 @@ public class TaskRepositoryImpl implements TaskRepository {
   public void editTask(Task task, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "UPDATE heroku_6541dbc2da94d1f.task SET taskname = ?, taskdescription = ?, tasktimeestimate = ? WHERE (taskid = ?);";
+      String SQL = "UPDATE heroku_6541dbc2da94d1f.task SET taskname = ?, taskdescription = ? WHERE (taskid = ?);";
       PreparedStatement ps = connection.prepareStatement(SQL);
       ps.setString(1, task.getTaskName());
       ps.setString(2, task.getTaskDescription());
-      ps.setInt(3, task.getTaskTimeEstimate());
-      ps.setInt(4, id);
+      ps.setInt(3, id);
       ps.execute();
     } catch (SQLException e) {
       throw new ProjectExeption(e.getMessage());

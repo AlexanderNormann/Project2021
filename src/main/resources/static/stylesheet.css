@@ -3,7 +3,7 @@ body{
     background: #E8F7EE;
 }
 
-input[type=text], input[type=password]{
+input[type=text], input[type=password], input[type=email]{
     width: 100%;
     padding: 1% 2%;
     margin: 1% 0%;

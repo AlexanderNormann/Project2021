@@ -15,12 +15,11 @@ public class ProjectRepositoryImpl implements ProjectRepository{
   public Project createProject(Project project, User user) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "insert into Project(projectname, projectdescription, projecttimeestimate, userID_FK) values (?,?,?,?)"; //Foreign Keys skal skrives ind
+      String SQL = "insert into Project(projectname, projectdescription, userID_FK) values (?,?,?)"; //Foreign Keys skal skrives ind
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, project.getProjectName());
       ps.setString(2,project.getProjectDescription());
-      ps.setInt(3, project.getProjectTimeEstimate());
-      ps.setInt(4, user.getUserId());
+      ps.setInt(3, user.getUserId());
       ps.execute();
       ResultSet rs = ps.getGeneratedKeys();
       rs.next();
@@ -48,7 +47,6 @@ public class ProjectRepositoryImpl implements ProjectRepository{
         Project project = new Project();
         project.setProjectName(resultSet.getString("projectname"));
         project.setProjectDescription(resultSet.getString("projectdescription"));
-        project.setProjectTimeEstimate(resultSet.getInt("projecttimeestimate"));
         project.setProjectId(resultSet.getInt("projectid"));
         projectList.add(project);
       }
@@ -71,7 +69,6 @@ public class ProjectRepositoryImpl implements ProjectRepository{
         project.setProjectId(resultSet.getInt("projectid"));
         project.setProjectName(resultSet.getString("projectname"));
         project.setProjectDescription(resultSet.getString("projectdescription"));
-        project.setProjectTimeEstimate(resultSet.getInt("projecttimeestimate"));
       }
     } catch (SQLException throwables) {
       throwables.printStackTrace();
@@ -82,12 +79,11 @@ public class ProjectRepositoryImpl implements ProjectRepository{
   public void editProject(Project project, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "UPDATE alphasolution.project SET projectname = ?, projectdescription = ?, projecttimeestimate = ? WHERE (projectid = ?);";
+      String SQL = "UPDATE heroku_6541dbc2da94d1f.project SET projectname = ?, projectdescription = ? WHERE (projectid = ?);";
       PreparedStatement ps = connection.prepareStatement(SQL);
       ps.setString(1, project.getProjectName());
       ps.setString(2, project.getProjectDescription());
-      ps.setInt(3, project.getProjectTimeEstimate());
-      ps.setInt(4, id);
+      ps.setInt(3, id);
       ps.execute();
     } catch (SQLException e) {
       throw new ProjectExeption(e.getMessage());
