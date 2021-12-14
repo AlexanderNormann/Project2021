@@ -9,5 +9,4 @@ class AlphaSolutionProjectApplicationTests {
   @Test
   void contextLoads() {
   }
-
 }
