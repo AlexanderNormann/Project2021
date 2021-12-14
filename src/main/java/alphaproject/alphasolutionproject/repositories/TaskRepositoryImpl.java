@@ -31,7 +31,7 @@ public class TaskRepositoryImpl implements TaskRepository {
     ArrayList<Task> taskList = new ArrayList<>();
     try{
       Connection connection = DBManager.getConnection();
-      String SQL = "select * from alphasolution.task where projectID_FK = ?";
+      String SQL = "select * from heroku_6541dbc2da94d1f.task where projectID_FK = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
@@ -55,7 +55,7 @@ public class TaskRepositoryImpl implements TaskRepository {
     try{
 
       Connection connection = DBManager.getConnection();
-      String SQL = "select * from alphasolution.task where taskid = ?";
+      String SQL = "select * from heroku_6541dbc2da94d1f.task where taskid = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
@@ -75,7 +75,7 @@ public class TaskRepositoryImpl implements TaskRepository {
   public void editTask(Task task, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "UPDATE alphasolution.task SET taskname = ?, taskdescription = ?, tasktimeestimate = ? WHERE (taskid = ?);";
+      String SQL = "UPDATE heroku_6541dbc2da94d1f.task SET taskname = ?, taskdescription = ?, tasktimeestimate = ? WHERE (taskid = ?);";
       PreparedStatement ps = connection.prepareStatement(SQL);
       ps.setString(1, task.getTaskName());
       ps.setString(2, task.getTaskDescription());
@@ -90,7 +90,7 @@ public class TaskRepositoryImpl implements TaskRepository {
   public void deleteTask(int id) {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "delete from alphasolution.task where taskid = ?";
+      String SQL = "delete from heroku_6541dbc2da94d1f.task where taskid = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       preparedStatement.execute();

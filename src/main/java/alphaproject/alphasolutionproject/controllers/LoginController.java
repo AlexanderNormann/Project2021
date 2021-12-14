@@ -34,7 +34,7 @@ public class LoginController {
         return "create_account";
     }
 
-    //This login to the site and direct it to frontpage
+    //This login to the site and redirect to showProjects which return frontpage
     @PostMapping("/login")
     public String login(@ModelAttribute("User") User user, HttpSession hs) throws Exception {
         User currentUser = loginService.login(user.getEmail(), user.getPassword());

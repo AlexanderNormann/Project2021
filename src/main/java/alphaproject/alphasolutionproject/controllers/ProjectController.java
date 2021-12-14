@@ -5,7 +5,6 @@ import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.domain.services.*;
 import alphaproject.alphasolutionproject.repositories.ProjectRepositoryImpl;
-import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
 import alphaproject.alphasolutionproject.repositories.UserRepositoryImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,8 +16,6 @@ import javax.servlet.http.HttpSession;
 public class ProjectController {
   private ProjectService projectService = new ProjectService(new ProjectRepositoryImpl());
   private LoginService loginService = new LoginService((new UserRepositoryImpl()));
-  private TaskService taskService = new TaskService(new TaskRepositoryImpl());
-  private Project project = new Project();
   private CalculatorService calculatorService = new CalculatorService();
 
   @GetMapping("/goToCreateProject")

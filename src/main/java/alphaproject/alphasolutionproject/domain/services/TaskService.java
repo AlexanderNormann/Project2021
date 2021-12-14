@@ -10,30 +10,30 @@ public class TaskService {
 
   private TaskRepository taskrepository;
   private TaskRepositoryImpl taskRepositoryImpl = new TaskRepositoryImpl();
-  private SubTaskService subTaskService = new SubTaskService();
 
-  public TaskService(TaskRepository taskrepository){
+
+  public TaskService(TaskRepository taskrepository) {
     this.taskrepository = taskrepository;
   }
-
 
 
   public Task createNewTask(Task task, int id) throws ProjectExeption {
     return taskRepositoryImpl.createTask(task, id);
   }
+
   public void editTask(Task task, int id) throws ProjectExeption {
     taskRepositoryImpl.editTask(task, id);
   }
 
-  public void deleteTask(int id){
+  public void deleteTask(int id) {
     taskRepositoryImpl.deleteTask(id);
   }
 
-  public ArrayList<Task> loadProjectTasks(int id){
+  public ArrayList<Task> loadProjectTasks(int id) {
     return taskRepositoryImpl.loadTasks(id);
   }
 
-  public Task loadSingleTask(int id){
+  public Task loadSingleTask(int id) {
     return taskRepositoryImpl.loadSingleTask(id);
   }
 

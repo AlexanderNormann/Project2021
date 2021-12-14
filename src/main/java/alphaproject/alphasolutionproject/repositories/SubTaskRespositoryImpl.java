@@ -2,7 +2,6 @@ package alphaproject.alphasolutionproject.repositories;
 
 import alphaproject.alphasolutionproject.domain.model.SubTask;
 import alphaproject.alphasolutionproject.domain.services.ProjectExeption;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -33,7 +32,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
     ArrayList<SubTask> subTaskList = new ArrayList<>();
     try{
       Connection connection = DBManager.getConnection();
-      String SQL = "select * from alphasolution.subtask where taskID_FK = ?";
+      String SQL = "select * from heroku_6541dbc2da94d1f.subtask where taskID_FK = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
@@ -57,7 +56,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
     try{
 
       Connection connection = DBManager.getConnection();
-      String SQL = "select * from alphasolution.subtask where subtaskid = ?";
+      String SQL = "select * from heroku_6541dbc2da94d1f.subtask where subtaskid = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
@@ -77,7 +76,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
   public void editSubtask(SubTask subTask, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "UPDATE alphasolution.subtask SET subtaskname = ?, subtaskdescription = ?, subtasktimeestimate = ? WHERE (subtaskid = ?);";
+      String SQL = "UPDATE heroku_6541dbc2da94d1f.subtask SET subtaskname = ?, subtaskdescription = ?, subtasktimeestimate = ? WHERE (subtaskid = ?);";
       PreparedStatement ps = connection.prepareStatement(SQL);
       ps.setString(1, subTask.getSubTaskName());
       ps.setString(2, subTask.getSubTaskDescription());
@@ -92,7 +91,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
   public void deleteSubTask(int id) {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "delete from alphasolution.subtask where subtaskid = ?";
+      String SQL = "delete from heroku_6541dbc2da94d1f.subtask where subtaskid = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       preparedStatement.execute();

@@ -7,8 +7,6 @@ import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.repositories.ProjectRepositoryImpl;
 import alphaproject.alphasolutionproject.repositories.SubTaskRespositoryImpl;
 import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
-
-
 import java.util.ArrayList;
 
 public class CalculatorService {

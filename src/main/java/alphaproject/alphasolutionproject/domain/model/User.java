@@ -12,9 +12,6 @@ private boolean authority;
   public User() {
   }
 
-
-
-
   public User(String firstName, String lastName, String email, String password, boolean authority) {
     this.firstName = firstName;
     this.lastName = lastName;

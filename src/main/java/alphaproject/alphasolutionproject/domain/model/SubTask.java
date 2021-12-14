@@ -13,8 +13,6 @@ public class SubTask {
   private String subTaskDescription;
   private int subTaskTimeEstimate;
   private int subTaskId;
-  private TaskService taskService = new TaskService(new TaskRepositoryImpl());
-  private SubTaskService subTaskService = new SubTaskService(new SubTaskRespositoryImpl());
 
   @Override
   public String toString() {

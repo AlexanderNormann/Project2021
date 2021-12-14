@@ -3,7 +3,6 @@ package alphaproject.alphasolutionproject.controllers;
 import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.services.*;
-
 import alphaproject.alphasolutionproject.repositories.ProjectRepositoryImpl;
 import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
 
@@ -39,7 +38,6 @@ public class TaskController {
   @GetMapping("/showTask")
   public String showTask(Model model, HttpSession hs) {
     Project project = (Project) hs.getAttribute("currentProject");
-    //ArrayList<Task> tasks = taskService.loadProjectTasks(project.getProjectId());
     ArrayList<Task> tasks = calculatorService.calcTotalTaskTime(project);
     model.addAttribute("project", project);
     model.addAttribute("taskList", tasks);

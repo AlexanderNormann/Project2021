@@ -3,8 +3,6 @@ package alphaproject.alphasolutionproject.domain.model;
 import alphaproject.alphasolutionproject.domain.services.ProjectService;
 import alphaproject.alphasolutionproject.repositories.ProjectRepositoryImpl;
 
-import java.util.ArrayList;
-
 public class Project {
 
   private String projectName;
