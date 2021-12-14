@@ -3,7 +3,7 @@ package alphaproject.alphasolutionproject.repositories;
 import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.model.User;
-import alphaproject.alphasolutionproject.domain.services.SampleExeption;
+import alphaproject.alphasolutionproject.domain.services.ProjectExeption;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
 
 
   @Override
-  public Project createProject(Project project, User user) throws SampleExeption {
+  public Project createProject(Project project, User user) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
       String SQL = "insert into Project(projectname, projectdescription, projecttimeestimate, userID_FK) values (?,?,?,?)"; //Foreign Keys skal skrives ind
@@ -28,7 +28,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
       project.setProjectId(id);
       return project;
     } catch (SQLException e){
-      throw new SampleExeption(e.getMessage());
+      throw new ProjectExeption(e.getMessage());
     }
   }
 
@@ -79,7 +79,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     return project;
   }
 
-  public void editProject(Project project, int id) throws SampleExeption {
+  public void editProject(Project project, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
       String SQL = "UPDATE alphasolution.project SET projectname = ?, projectdescription = ?, projecttimeestimate = ? WHERE (projectid = ?);";
@@ -90,7 +90,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
       ps.setInt(4, id);
       ps.execute();
     } catch (SQLException e) {
-      throw new SampleExeption(e.getMessage());
+      throw new ProjectExeption(e.getMessage());
     }
   }
 
