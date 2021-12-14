@@ -38,7 +38,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     ArrayList<Project> projectList = new ArrayList<>();
     try{
       Connection connection = DBManager.getConnection();
-      String SQL = "select * from heroku_6541dbc2da94d1f.project where userID_FK = ?";
+      String SQL = "select * from alphasolution.project where userID_FK = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
@@ -60,7 +60,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     try{
 
       Connection connection = DBManager.getConnection();
-      String SQL = "select * from heroku_6541dbc2da94d1f.project where projectid = ?";
+      String SQL = "select * from alphasolution.project where projectid = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
@@ -79,7 +79,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
   public void editProject(Project project, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "UPDATE heroku_6541dbc2da94d1f.project SET projectname = ?, projectdescription = ? WHERE (projectid = ?);";
+      String SQL = "UPDATE alphasolution.project SET projectname = ?, projectdescription = ? WHERE (projectid = ?);";
       PreparedStatement ps = connection.prepareStatement(SQL);
       ps.setString(1, project.getProjectName());
       ps.setString(2, project.getProjectDescription());
@@ -93,7 +93,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
   public void deleteProject(int id){
     try{
       Connection connection = DBManager.getConnection();
-      String SQL = "delete from heroku_6541dbc2da94d1f.project where projectid = ?";
+      String SQL = "delete from alphasolution.project where projectid = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       preparedStatement.execute();

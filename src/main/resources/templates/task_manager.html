@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="stylesheet.css" rel="stylesheet">
+    <title>Project Manager</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container">
+    <div>
+        <h1>Your project:
+            <span th:text="${currentProject.projectName}"></span>
+        </h1>
+    </div>
+
+    <h2>Project Tasks</h2>
+
+    <table class="table table-light table-striped">
+        <thead>
+            <tr>
+                <th class="table-light"> Task Name</th>
+                <th class="table-light"> Task Description</th>
+                <th class="table-light"> Task estimated time</th>
+                <th class="table-light"> Subtasks</th>
+                <th class="table-light"> Task settings</th>
+                <th class="table-light"> Delete</th>
+
+            </tr>
+            <tr th:each="Task : ${taskList}">
+                <td th:text="${Task.taskName}" class="table-light"></td>
+                <td th:text="${Task.taskDescription}" class="table-light"></td>
+                <td  class="table-light"><p><span th:text="${Task.taskTimeEstimate}"></span>hrs</p></td>
+
+
+                <td><a th:href="@{'/goToSubtaskManager/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Show subtasks</a></td>
+                <td><a th:href="@{'/goToEditTask/'+${Task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Task settings</a></td>
+                <td><button class="btn btn-outline-danger btn-xs button3 logo" data-bs-toggle="modal" data-bs-target="#exampleModal" th:onclick="'insertIdToModal(' + ${Task.taskId} + ')'">Delete</button></td>
+            </tr>
+        </thead>
+    </table>
+    <a th:href="@{'/goToCreateTask/'+${project.projectId}}"  class="btn btn-outline-dark btn-xs">Create task</a> <br>
+    <a th:href="@{/goToFrontPage}" class="btn btn-dark btn-xs button2">Return to project site</a>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirm deletion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete your task
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <a type="button" class="btn btn-danger" id="confirmDeletionButton">Yes im sure</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function insertIdToModal(id){
+        var confirmDeleteButton = document.getElementById("confirmDeletionButton");
+        confirmDeleteButton.href =  "/deleteTask/" + id;
+    }
+</script>
+
+
+</body>
+</html>

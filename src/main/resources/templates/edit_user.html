@@ -32,12 +32,11 @@
         <!--Updated password for user/DB-->
         <input type="text" th:field="*{password}" th:value="${currentuser.password}" required><br>
 
-
-
         <!--"Create" submit button-->
         <button type="submit" class="btn btn-outline-dark btn-xxl button1">Update user</button><br>
     </form>
     <a th:href="@{/showProjects}" class="btn btn-dark btn-xs button2">Return to user</a>
+
     <style>
         body{
             font-family: Arial;
