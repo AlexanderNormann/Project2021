@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
-    private LoginService loginService = new LoginService(new UserRepositoryImpl());
+   private LoginService loginService = new LoginService(new UserRepositoryImpl());
 
 
     //This redirect to the frontpage

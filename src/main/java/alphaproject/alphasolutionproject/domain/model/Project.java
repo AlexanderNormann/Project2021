@@ -11,8 +11,6 @@ public class Project {
   private int projectTimeEstimate;
   private int projectId;
   private int projectHourlyRate = 1500;
-  private ProjectService projectService = new ProjectService(new ProjectRepositoryImpl());
-  private SubTask subTask = new SubTask();
 
   public Project() {
   }

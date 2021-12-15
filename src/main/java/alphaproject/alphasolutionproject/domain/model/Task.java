@@ -9,8 +9,6 @@ public class Task {
   private int taskTimeEstimate;
   private int taskId;
   private ArrayList<SubTask> subTasks;
-  private TaskService taskService = new TaskService(new TaskRepositoryImpl());
-  private SubTask subTask = new SubTask();
 
   public Task() {
   }
