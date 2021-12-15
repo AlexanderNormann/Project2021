@@ -32,13 +32,6 @@ public class ProjectController {
     return "redirect:/showProjects";
   }
 
-  @GetMapping("/goToUserDetail")
-  public String goToUserDetail(Model model, HttpSession hs){
-    User user = (User)hs.getAttribute("user");
-    model.addAttribute("currentUser", loginService.loadSingleUser(user.getUserId()));
-    return "user_manager";
-  }
-
 
   @GetMapping("/goToEditUser")
   public String editProfile(Model model, HttpSession hs){
@@ -50,7 +43,7 @@ public class ProjectController {
   public String editProfile(@ModelAttribute ("editedUser") User editedUser, HttpSession hs ) throws ProjectExeption {
     User user = (User)hs.getAttribute("user");
     loginService.editUser(editedUser, user.getUserId());
-    return "redirect:/goToUserDetail";
+    return "redirect:/showProjects";
   }
 
   @GetMapping("/goToFrontPage")
