@@ -1,0 +1,5 @@
+userid;firstname;lastname;email;password;role
+1;nicklas;hansen;nicklas@gmail.dk;1;TRUE
+2;Jonathan;Nielsen;jonas@gmail.dk;1;TRUE
+3;Alexander;Normann;alex@gmail.dk;1;FALSE
+

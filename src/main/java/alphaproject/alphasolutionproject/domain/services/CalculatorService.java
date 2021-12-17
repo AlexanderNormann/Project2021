@@ -4,15 +4,13 @@ import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.SubTask;
 import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.model.User;
-import alphaproject.alphasolutionproject.repositories.ProjectRepositoryImpl;
-import alphaproject.alphasolutionproject.repositories.SubTaskRespositoryImpl;
-import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
 import java.util.ArrayList;
 
 public class CalculatorService {
-  private TaskService taskService = new TaskService(new TaskRepositoryImpl());
-  private SubTaskService subTaskService = new SubTaskService(new SubTaskRespositoryImpl());
-  private ProjectService projectService = new ProjectService(new ProjectRepositoryImpl());
+  private ProjectService projectService = new ProjectService();
+  private SubTaskService subTaskService = new SubTaskService();
+  private TaskService taskService = new TaskService();
+
 
   public ArrayList<Project> calcTotalProjectTimeAndCost(User user) {
 

@@ -11,6 +11,8 @@ public class LoginService {
   public LoginService(UserRepository userRepository) {
     this.userRepository = userRepository;
   }
+  public LoginService(){
+  }
 
   public User login(String email, String password) throws Exception {
     return userRepository.login(email, password);

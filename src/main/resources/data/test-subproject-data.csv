@@ -1,0 +1,21 @@
+subtaskid;subtaskname;subtaskdescription;subtasktimeestimate;taskID_FK
+1;SD;udarbejd SSD inden implementering af kode og SD efter;5;2
+2;Klasse diagram;inden og efter;3;2
+3;Loginside;Opret en lækker loginside;7;3
+4;color scheme;Udarbejd et lækker color scheme til siden;4;3
+5;algoritme;Lav en algoritme til at udvide databasen automatisk;10;4
+6;DB struktur;Konstruer en DB som følger alle normalformer;13;4
+7;videoafspiller;Optimer videoafspilleren så videoer kører bedst muligt;2;5
+8;design;lav et godt design;9;5
+9;opret bruger;bruger skal kunne oprette en bruger;4;6
+10;personlig bruger;brugeren skal være en personlig bruger;4;6
+11;bland ingredienser;Kagens ingredienser skal blandes;1;7
+12;kage i ovn;put kagen i ovnen;1;8
+13;rema1000;alle  ingredienser findes i rema1000;2;9
+14;køb;betal med penge;1;9
+15;Opskrift;Find en opskrift på rugbrød;1;10
+16;følg opskrift;Opskriften skal følges;2;10
+17;find have;find en have med massere af bør;4;11
+18;pluk bær;pluk så mange bær som muligt inden du bliver fanger;2;11
+19;opfind blænder;opfind en blænder så du kan lave din smoothie;10;12
+20;lav smoothie;lav din smoothie;1;12

@@ -20,7 +20,7 @@ public class SubTaskController {
   private TaskService taskService = new TaskService(new TaskRepositoryImpl());
 
   @GetMapping("/goToCreateSubTask/{id}")
-  public String createTask(Model model, @PathVariable("id") int id){
+  public String createSubtask(Model model, @PathVariable("id") int id){
     SubTask subTask = new SubTask();
     model.addAttribute("subTask", subTask);
     model.addAttribute("taskID", id);

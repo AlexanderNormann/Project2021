@@ -3,7 +3,6 @@ package alphaproject.alphasolutionproject.domain.services;
 import alphaproject.alphasolutionproject.domain.model.SubTask;
 import alphaproject.alphasolutionproject.repositories.SubTaskRepository;
 import alphaproject.alphasolutionproject.repositories.SubTaskRespositoryImpl;
-
 import java.util.ArrayList;
 
 public class SubTaskService {
@@ -17,7 +16,6 @@ public class SubTaskService {
   }
 
   public SubTaskService() {
-
   }
 
   public SubTask createNewSubTask(SubTask subTask, int id) throws ProjectExeption {

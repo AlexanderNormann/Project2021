@@ -30,12 +30,8 @@
     </tr>
     <tr th:each="SubTask : ${subtaskList}">
         <td th:text="${SubTask.subTaskName}" class="table-light"></td>
-
         <td th:text="${SubTask.subTaskDescription}" class="table-light"></td>
-
-
         <td th:text="${SubTask.subTaskTimeEstimate}" class="table-light"></td>
-
         <td><a th:href="@{'/goToEditSubtask/'+${SubTask.subTaskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Subtask settings</a></td>
         <td><button class="btn btn-outline-danger btn-xs button3 logo" data-bs-toggle="modal" data-bs-target="#exampleModal" th:onclick="'insertIdToModal(' + ${SubTask.subTaskId} + ')'">Delete</button></td>
 
@@ -44,6 +40,7 @@
 </table>
     <td><a th:href="@{'/goToCreateSubTask/'+${task.taskId}}" class="btn btn-outline-dark btn-xs button3 logo" >Create New Subtask</a></td>
     <a th:href="@{/showTask}" class="btn btn-dark btn-xs button2">Return to tasks</a>
+    <a th:href="@{/goToFrontPage}" class="btn btn-dark btn-xs button2">Return to project site</a>
 </div>
 
 

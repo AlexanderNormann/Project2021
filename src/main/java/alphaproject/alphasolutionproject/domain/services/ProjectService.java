@@ -17,6 +17,7 @@ public class ProjectService {
   public ProjectService(ProjectRepository projectRepository) {
     this.projectRepository = projectRepository;
   }
+  public ProjectService(){}
 
   public Project createNewProject(Project project, User user) throws ProjectExeption {
     return projectRepositoryImpl.createProject(project, user);

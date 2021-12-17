@@ -1,0 +1,15 @@
+taskid;taskname;taskdescription;projectID_FK
+2;UML diagrammer; SD diagrammer, klassediagrammer, domaine model osv.;1
+3;HTML; design hvordan programmet skal se ud;2
+4;Opret database; database skal oprettes, og algoritme skal laves til den;2
+5;implementer videofeature; Brugere skal kunne oprette videoer;3
+6;opret bruger; sørg for at brugere kan oprette en profil;3
+7;lav dej; lav dejen til kage;4
+8;bag kagen; kagen skal bages;4
+9;Skaf ressourcer; Ingredienser til rugbrød skal købes;5
+10;opskrift; udarbejd en opskrift på rugbrød;5
+11;bær;pluk bær i haven til smoothie;6
+12;blænder;blænder skal samles;6
+1;gant diagram; oversigt over tidsforbrug til projektet;1;
+
+

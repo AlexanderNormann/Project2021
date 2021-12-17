@@ -48,9 +48,10 @@
             <td th:text="${Project.projectDescription}" class="table-light"></td>
             <td class="table-light"><p><span th:text="${Project.projectTimeEstimate}"> </span>hrs</p></td>
             <td class="table-light"><p><span th:text="${Project.projectTotalPrice}"></span>dkk</p></td>
-
-            <td><a th:href="@{'/goToProjectManager/'+${Project.projectId}}" class="btn btn-outline-dark btn-xs button3 logo" >Show task</a></td>
-            <td><a th:href="@{'/goToEditProject/'+${Project.projectId}}" class="btn btn-outline-dark btn-xs button3 logo" >Project settings</a></td>
+            <td><a th:href="@{'/goToProjectManager/'+${Project.projectId}}"
+                   class="btn btn-outline-dark btn-xs button3 logo" >Show task</a></td>
+            <td><a th:href="@{'/goToEditProject/'+${Project.projectId}}"
+                   class="btn btn-outline-dark btn-xs button3 logo" >Project settings</a></td>
             <td><button class="btn btn-outline-danger btn-xs button3 logo" data-bs-toggle="modal" data-bs-target="#exampleModal" th:onclick="'insertIdToModal(' + ${Project.projectId} + ')'">Delete</button></td>
 
         </tr>
