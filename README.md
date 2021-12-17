@@ -23,7 +23,7 @@ To install Project calculator (Eksamensprojetk 2021), follow these steps:
 
 To use Project calculator from Heroku (Eksamensprojetk 2021)
 
-Heroku guide til hosting af projekt og database (Vi tager udgangspunkt i person der skal deploye programmet bruger sin egen GitHub-konto og projektet ligger på personens GitHub)
+Heroku guide til hosting af projekt og database (Vi tager udgangspunkt i personen der skal deploye programmet bruger sin egen GitHub-konto og projektet ligger på personens GitHub)
 
 1.	Login på Heroku
 2.	Tryk på ”New” i øvre højre
