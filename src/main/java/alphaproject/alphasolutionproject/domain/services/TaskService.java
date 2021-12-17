@@ -15,7 +15,9 @@ public class TaskService {
   public TaskService(TaskRepository taskrepository) {
     this.taskrepository = taskrepository;
   }
-  public TaskService(){}
+
+  public TaskService() {
+  }
 
 
   public Task createNewTask(Task task, int id) throws ProjectExeption {

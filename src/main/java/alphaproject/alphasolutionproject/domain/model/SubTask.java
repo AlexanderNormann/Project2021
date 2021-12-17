@@ -1,12 +1,5 @@
 package alphaproject.alphasolutionproject.domain.model;
-
-import alphaproject.alphasolutionproject.domain.services.SubTaskService;
-import alphaproject.alphasolutionproject.domain.services.TaskService;
-import alphaproject.alphasolutionproject.repositories.SubTaskRespositoryImpl;
-import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
-
-import java.util.ArrayList;
-
+//Lavet af alle
 public class SubTask {
 
   private String subTaskName;

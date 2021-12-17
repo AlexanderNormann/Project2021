@@ -2,11 +2,12 @@ package alphaproject.alphasolutionproject.repositories;
 
 import alphaproject.alphasolutionproject.domain.model.SubTask;
 import alphaproject.alphasolutionproject.domain.services.ProjectExeption;
+
 import java.sql.*;
 import java.util.ArrayList;
 
-public class SubTaskRespositoryImpl implements SubTaskRepository{
-
+public class SubTaskRespositoryImpl implements SubTaskRepository {
+  //lavet af Jonathan
   @Override
   public SubTask createSubTask(SubTask subTask, int id) throws ProjectExeption {
     try {
@@ -28,16 +29,17 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
     }
   }
 
-  public ArrayList<SubTask> loadSubTasksByTaskID(int id){
+  //lavet af Alexander
+  public ArrayList<SubTask> loadSubTasksByTaskID(int id) {
     ArrayList<SubTask> subTaskList = new ArrayList<>();
-    try{
+    try {
       Connection connection = DBManager.getConnection();
       String SQL = "select * from heroku_8c82ce867ddf156.subtask where taskID_FK = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
 
-      while(resultSet.next()){
+      while (resultSet.next()) {
         SubTask subTask = new SubTask();
         subTask.setSubTaskName(resultSet.getString("subtaskname"));
         subTask.setSubTaskDescription(resultSet.getString("subtaskdescription"));
@@ -50,10 +52,10 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
     }
     return subTaskList;
   }
-
-  public SubTask loadSingleSubtask(int id){
+  //lavet af Nicklas
+  public SubTask loadSingleSubtask(int id) {
     SubTask subTask = new SubTask();
-    try{
+    try {
 
       Connection connection = DBManager.getConnection();
       String SQL = "select * from heroku_8c82ce867ddf156.subtask where subtaskid = ?";
@@ -61,7 +63,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
 
-      while(resultSet.next()){
+      while (resultSet.next()) {
         subTask.setSubTaskId(resultSet.getInt("subtaskid"));
         subTask.setSubTaskName(resultSet.getString("subtaskname"));
         subTask.setSubTaskDescription(resultSet.getString("subtaskdescription"));
@@ -72,7 +74,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
     }
     return subTask;
   }
-
+  //lavet af nicklas
   public void editSubtask(SubTask subTask, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
@@ -87,7 +89,7 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
       throw new ProjectExeption(e.getMessage());
     }
   }
-
+  //lavet af alle
   public void deleteSubTask(int id) {
     try {
       Connection connection = DBManager.getConnection();
@@ -100,8 +102,6 @@ public class SubTaskRespositoryImpl implements SubTaskRepository{
       throwables.printStackTrace();
     }
   }
-
-
 
 
 }

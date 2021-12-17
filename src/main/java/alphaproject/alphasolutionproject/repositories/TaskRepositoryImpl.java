@@ -2,10 +2,12 @@ package alphaproject.alphasolutionproject.repositories;
 
 import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.services.ProjectExeption;
+
 import java.sql.*;
 import java.util.ArrayList;
 
 public class TaskRepositoryImpl implements TaskRepository {
+  //lavet af Jonathan
   @Override
   public Task createTask(Task task, int id) throws ProjectExeption {
     try {
@@ -25,17 +27,17 @@ public class TaskRepositoryImpl implements TaskRepository {
       throw new ProjectExeption(e.getMessage());
     }
   }
-
-  public ArrayList<Task> loadTasks(int id){
+  //lavet af Alexander
+  public ArrayList<Task> loadTasks(int id) {
     ArrayList<Task> taskList = new ArrayList<>();
-    try{
+    try {
       Connection connection = DBManager.getConnection();
       String SQL = "select * from heroku_8c82ce867ddf156.task where projectID_FK = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
 
-      while(resultSet.next()){
+      while (resultSet.next()) {
         Task task = new Task();
         task.setTaskName(resultSet.getString("taskname"));
         task.setTaskDescription(resultSet.getString("taskdescription"));
@@ -47,10 +49,10 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
     return taskList;
   }
-
-  public Task loadSingleTask(int id){
+  //lavet af Nicklas
+  public Task loadSingleTask(int id) {
     Task task = new Task();
-    try{
+    try {
 
       Connection connection = DBManager.getConnection();
       String SQL = "select * from heroku_8c82ce867ddf156.task where taskid = ?";
@@ -58,7 +60,7 @@ public class TaskRepositoryImpl implements TaskRepository {
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
 
-      while(resultSet.next()){
+      while (resultSet.next()) {
         task.setTaskId(resultSet.getInt("taskid"));
         task.setTaskName(resultSet.getString("taskname"));
         task.setTaskDescription(resultSet.getString("taskdescription"));
@@ -68,7 +70,7 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
     return task;
   }
-
+  //lavet af Nicklas
   public void editTask(Task task, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
@@ -82,7 +84,7 @@ public class TaskRepositoryImpl implements TaskRepository {
       throw new ProjectExeption(e.getMessage());
     }
   }
-
+  //lavet af alle
   public void deleteTask(int id) {
     try {
       Connection connection = DBManager.getConnection();

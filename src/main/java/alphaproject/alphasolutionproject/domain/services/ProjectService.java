@@ -13,11 +13,12 @@ public class ProjectService {
   private ProjectRepositoryImpl projectRepositoryImpl = new ProjectRepositoryImpl();
 
 
-
   public ProjectService(ProjectRepository projectRepository) {
     this.projectRepository = projectRepository;
   }
-  public ProjectService(){}
+
+  public ProjectService() {
+  }
 
   public Project createNewProject(Project project, User user) throws ProjectExeption {
     return projectRepositoryImpl.createProject(project, user);

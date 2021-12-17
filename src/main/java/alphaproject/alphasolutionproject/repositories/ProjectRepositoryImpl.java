@@ -3,21 +3,21 @@ package alphaproject.alphasolutionproject.repositories;
 import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.domain.services.ProjectExeption;
+
 import java.sql.*;
 import java.util.ArrayList;
 
-public class ProjectRepositoryImpl implements ProjectRepository{
+public class ProjectRepositoryImpl implements ProjectRepository {
 
-
-
+  //Jonathan
   @Override
   public Project createProject(Project project, User user) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
-      String SQL = "insert into Project(projectname, projectdescription, userID_FK) values (?,?,?)"; //Foreign Keys skal skrives ind
+      String SQL = "insert into Project(projectname, projectdescription, userID_FK) values (?,?,?)";
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, project.getProjectName());
-      ps.setString(2,project.getProjectDescription());
+      ps.setString(2, project.getProjectDescription());
       ps.setInt(3, user.getUserId());
       ps.execute();
       ResultSet rs = ps.getGeneratedKeys();
@@ -25,24 +25,22 @@ public class ProjectRepositoryImpl implements ProjectRepository{
       int id = rs.getInt(1);
       project.setProjectId(id);
       return project;
-    } catch (SQLException e){
+    } catch (SQLException e) {
       throw new ProjectExeption(e.getMessage());
     }
   }
 
-
-
-
-  public ArrayList<Project> loadProjects(int id){
+  //Alexander
+  public ArrayList<Project> loadProjects(int id) {
     ArrayList<Project> projectList = new ArrayList<>();
-    try{
+    try {
       Connection connection = DBManager.getConnection();
       String SQL = "select * from heroku_8c82ce867ddf156.project where userID_FK = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
 
-      while(resultSet.next()){
+      while (resultSet.next()) {
         Project project = new Project();
         project.setProjectName(resultSet.getString("projectname"));
         project.setProjectDescription(resultSet.getString("projectdescription"));
@@ -54,9 +52,10 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     }
     return projectList;
   }
-  public Project loadSingleProject(int id){
+  //lavet Nicklas
+  public Project loadSingleProject(int id) {
     Project project = new Project();
-    try{
+    try {
 
       Connection connection = DBManager.getConnection();
       String SQL = "select * from heroku_8c82ce867ddf156.project where projectid = ?";
@@ -64,7 +63,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
 
-      while(resultSet.next()){
+      while (resultSet.next()) {
         project.setProjectId(resultSet.getInt("projectid"));
         project.setProjectName(resultSet.getString("projectname"));
         project.setProjectDescription(resultSet.getString("projectdescription"));
@@ -74,7 +73,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     }
     return project;
   }
-
+  //lavet af Nicklas
   public void editProject(Project project, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
@@ -88,9 +87,9 @@ public class ProjectRepositoryImpl implements ProjectRepository{
       throw new ProjectExeption(e.getMessage());
     }
   }
-
-  public void deleteProject(int id){
-    try{
+  //Lavet af alle
+  public void deleteProject(int id) {
+    try {
       Connection connection = DBManager.getConnection();
       String SQL = "delete from heroku_8c82ce867ddf156.project where projectid = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(SQL);
@@ -101,8 +100,6 @@ public class ProjectRepositoryImpl implements ProjectRepository{
       throwables.printStackTrace();
     }
   }
-
-
 
 
 }

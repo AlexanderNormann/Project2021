@@ -11,14 +11,15 @@ public class LoginService {
   public LoginService(UserRepository userRepository) {
     this.userRepository = userRepository;
   }
-  public LoginService(){
+
+  public LoginService() {
   }
 
-  public User login(String email, String password) throws Exception {
+  public User login(String email, String password) throws ProjectExeption {
     return userRepository.login(email, password);
   }
 
-  public User createUser(String firstname, String lastname, String email, String password, boolean authority) throws Exception {
+  public User createUser(String firstname, String lastname, String email, String password, boolean authority) throws ProjectExeption {
     User user = new User(firstname, lastname, email, password, authority);
     return userRepository.createUser(user);
   }

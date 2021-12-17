@@ -4,6 +4,7 @@ import alphaproject.alphasolutionproject.domain.model.Project;
 import alphaproject.alphasolutionproject.domain.model.SubTask;
 import alphaproject.alphasolutionproject.domain.model.Task;
 import alphaproject.alphasolutionproject.domain.model.User;
+
 import java.util.ArrayList;
 
 public class CalculatorService {
@@ -11,7 +12,7 @@ public class CalculatorService {
   private SubTaskService subTaskService = new SubTaskService();
   private TaskService taskService = new TaskService();
 
-
+  //lavet af Nicklas
   public ArrayList<Project> calcTotalProjectTimeAndCost(User user) {
 
     ArrayList<Project> projectList = projectService.loadProjects(user.getUserId());
@@ -22,7 +23,7 @@ public class CalculatorService {
     }
     return projectList;
   }
-
+  //lavet af Nicklas
   public int totalSubtaskTimeForProject(Project project) {
     ArrayList<Task> tempTaskList = taskService.loadProjectTasks(project.getProjectId());
     int totalProjectTime = 0;
@@ -35,7 +36,7 @@ public class CalculatorService {
     }
     return totalProjectTime;
   }
-
+  //lavet af Nicklas
   public ArrayList<Task> calcTotalTaskTime(Project project) {
 
     ArrayList<Task> taskList = taskService.loadProjectTasks(project.getProjectId());
@@ -45,7 +46,7 @@ public class CalculatorService {
     }
     return taskList;
   }
-
+  //Lavet af Nicklas
   public int totalSubtaskTimeForTask(Task task) {
     ArrayList<SubTask> tempSubtaskList = subTaskService.loadSubTasksByTaskID(task.getTaskId());
     int totalTaskTime = 0;

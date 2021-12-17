@@ -1,8 +1,5 @@
 package alphaproject.alphasolutionproject.domain.model;
-
-import alphaproject.alphasolutionproject.domain.services.ProjectService;
-import alphaproject.alphasolutionproject.repositories.ProjectRepositoryImpl;
-
+//Lavet af alle
 public class Project {
 
   private String projectName;

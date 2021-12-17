@@ -1,12 +1,12 @@
 package alphaproject.alphasolutionproject.domain.model;
-
+//Lavet af alle
 public class User {
-private String firstName;
-private String lastName;
-private String email;
-private String password;
-private int userId;
-private boolean authority;
+  private String firstName;
+  private String lastName;
+  private String email;
+  private String password;
+  private int userId;
+  private boolean authority;
 
 
   public User() {

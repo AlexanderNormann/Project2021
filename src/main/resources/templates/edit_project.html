@@ -17,11 +17,11 @@
     <form action="#" th:action="@{'/editProject/'}" th:object="${projectToEdit}" method="post">
 
         <!--Updated name for task/DB-->
-        <label><b>Task name</b></label><br>
+        <label><b>Project name</b></label><br>
         <input type="text" th:field="*{projectName}" th:value="${projectToEdit.projectName}" required><br>
 
         <!--Updated description for task/DB-->
-        <label><b>Task description</b></label><br>
+        <label><b>Project description</b></label><br>
         <input type="text" th:field="*{projectDescription}" th:value="${projectToEdit.projectDescription}" required><br>
 
         <label></label>
@@ -30,7 +30,7 @@
 
 
         <!--"Create" submit button-->
-        <button type="submit" class="btn btn-outline-dark btn-xxl button1">Update task</button><br>
+        <button type="submit" class="btn btn-outline-dark btn-xxl button1">Update project</button><br>
     </form>
     <style>
         body{

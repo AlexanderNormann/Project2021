@@ -1,8 +1,7 @@
 package alphaproject.alphasolutionproject.domain.model;
-import alphaproject.alphasolutionproject.domain.services.TaskService;
-import alphaproject.alphasolutionproject.repositories.TaskRepositoryImpl;
 import java.util.ArrayList;
 
+//Lavet af alle
 public class Task {
   private String taskName;
   private String taskDescription;
@@ -13,7 +12,7 @@ public class Task {
   public Task() {
   }
 
-  public Task(int taskId){
+  public Task(int taskId) {
     this.taskId = taskId;
   }
 
@@ -63,7 +62,6 @@ public class Task {
     this.taskId = taskId;
 
   }
-
 
 
 }

@@ -2,13 +2,15 @@ package alphaproject.alphasolutionproject.repositories;
 
 import alphaproject.alphasolutionproject.domain.model.User;
 import alphaproject.alphasolutionproject.domain.services.ProjectExeption;
+
 import java.sql.*;
 
 
 public class UserRepositoryImpl implements UserRepository {
 
+ //lavet af Jonathan
   @Override
-  public User login(String email, String password) throws Exception {
+  public User login(String email, String password) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
       String SQL = "select userid from user " + "where email = ? and password = ?";
@@ -22,7 +24,7 @@ public class UserRepositoryImpl implements UserRepository {
         user.setUserId(id);
         return user;
       } else {
-        throw new Exception("kunne ikke ikke login");
+        throw new ProjectExeption("kunne ikke ikke login");
       }
 
     } catch (SQLException e) {
@@ -30,10 +32,10 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
   }
-
+  //lavet af Alexander
   @Override
-  public User createUser(User user) throws Exception {
-    try{
+  public User createUser(User user) throws ProjectExeption {
+    try {
       Connection connection = DBManager.getConnection();
       String SQL = "insert into User (firstname, lastname, email, password, role) values (?, ?, ?, ?, ?) ";
       PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
@@ -48,14 +50,15 @@ public class UserRepositoryImpl implements UserRepository {
       int id = rs.getInt(1);
       user.setUserId(id);
       return user;
-    } catch (SQLException e){
-      throw new Exception(e.getMessage());
+    } catch (SQLException e) {
+      throw new ProjectExeption(e.getMessage());
     }
   }
 
-  public User loadSingleUser(int id){
+  //lavet af Nicklas
+  public User loadSingleUser(int id) {
     User user = new User();
-    try{
+    try {
 
       Connection connection = DBManager.getConnection();
       String SQL = "select * from heroku_8c82ce867ddf156.user where userid = ?";
@@ -63,7 +66,7 @@ public class UserRepositoryImpl implements UserRepository {
       preparedStatement.setInt(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
 
-      while(resultSet.next()){
+      while (resultSet.next()) {
         user.setUserId(resultSet.getInt("userid"));
         user.setFirstName(resultSet.getString("firstname"));
         user.setLastName(resultSet.getString("lastname"));
@@ -77,6 +80,7 @@ public class UserRepositoryImpl implements UserRepository {
     return user;
   }
 
+  //lavet af Nicklas
   public void editUser(User user, int id) throws ProjectExeption {
     try {
       Connection connection = DBManager.getConnection();
